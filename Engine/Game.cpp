@@ -21,10 +21,11 @@
 #include "MainWindow.h"
 #include "Game.h"
 
-Game::Game( MainWindow& wnd )
+Game::Game(MainWindow& wnd)
 	:
-	wnd( wnd ),
-	gfx( wnd )
+	wnd(wnd),
+	gfx(wnd),
+	ship(Vec2(100, 100), Vec2(50, 50), 100, Colors::Cyan)
 {
 }
 
@@ -38,8 +39,11 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	const float dt = ft.Mark();
+	ship.Update(wnd.kbd, dt);
 }
 
 void Game::ComposeFrame()
 {
+	ship.Draw(gfx);
 }

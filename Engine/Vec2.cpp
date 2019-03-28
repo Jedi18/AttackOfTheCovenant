@@ -11,6 +11,16 @@ Vec2 & Vec2::operator+=(const Vec2 & rhs)
 	return *this = *this + rhs;
 }
 
+Vec2 Vec2::operator*(float rhs) const
+{
+	return Vec2(x * rhs, y * rhs);
+}
+
+Vec2 & Vec2::operator*=(float rhs)
+{
+	return *this = *this * rhs;
+}
+
 Vec2::Vec2(float in_x, float in_y)
 	:
 	x(in_x),
@@ -30,16 +40,17 @@ float Vec2::GetLength()
 
 Vec2 Vec2::GetNormalized()
 {
-	float length = GetLength();
-	Vec2 res = { 0.0f,0.0f };
-	res.x = x / length;
-	res.y = y / length;
-	return res;
+	const float length = GetLength();
+	
+	if (length != 0.0f)
+	{
+		return *this * (1.0f / length);
+	}
+
+	return *this;
 }
 
-void Vec2::Normalize()
+Vec2& Vec2::Normalize()
 {
-	float length = GetLength();
-	x = x / length;
-	y = y / length;
+	return *this = GetNormalized();
 }
