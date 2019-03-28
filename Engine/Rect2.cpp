@@ -54,3 +54,14 @@ void Rect2::CollisionBoundary(Vec2& pos, Vec2& vel)
 		lastCollision = LastCollision::Bottom;
 	}
 }
+
+bool Rect2::IsOverlappingWith(const Rect2 & rect) const
+{
+	if (rect.left >= left && rect.right <= right && rect.top >= top && rect.bottom <= bottom)
+	{
+		return true;
+	}
+	else {
+		return false;
+	}
+}

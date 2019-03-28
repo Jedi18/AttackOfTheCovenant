@@ -28,6 +28,10 @@ Game::Game(MainWindow& wnd)
 	ship(Vec2(100, 100), Vec2(200, 200)),
 	ast0(Vec2(400, 50), Vec2(0, 200), 0)
 {
+	for (int i = 0; i < nLasers; i++)
+	{
+		laserList[i] = Laser(Vec2(425, 500), Vec2(0, -300), Colors::Red);
+	}
 }
 
 void Game::Go()
@@ -41,12 +45,17 @@ void Game::Go()
 void Game::UpdateModel()
 {
 	const float dt = ft.Mark();
+
 	ship.Update(wnd.kbd, dt);
 	ast0.Update(dt);
+	laserList[0].Update(dt);
+	
+	ast0.LaserCollision(laserList, nLasers);
 }
 
 void Game::ComposeFrame()
 {
 	ship.Draw(gfx);
 	ast0.Draw(gfx);
+	laserList[0].Draw(gfx);
 }

@@ -26,6 +26,7 @@
 #include "FrameTimer.h"
 #include "Ship.h"
 #include "Asteroid.h"
+#include "Laser.h"
 
 class Game
 {
@@ -48,5 +49,7 @@ private:
 	FrameTimer ft;
 	Ship ship;
 	Asteroid ast0;
+	static constexpr int nLasers = 1;
+	Laser laserList[nLasers];
 	/********************************/
 };

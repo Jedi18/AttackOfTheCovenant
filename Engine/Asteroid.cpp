@@ -39,3 +39,19 @@ void Asteroid::CollisionBoundary()
 		}
 	}
 }
+
+void Asteroid::LaserCollision(Laser laserList[], int nLasers)
+{
+	if (!destroyed)
+	{
+		for (int i = 0; i < nLasers; i++)
+		{
+			if (rect.IsOverlappingWith(laserList[i].GetRect()))
+			{
+				destroyed = true;
+				laserList[i].Destroy();
+				return;
+			}
+		}
+	}
+}

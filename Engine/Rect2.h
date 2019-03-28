@@ -14,9 +14,11 @@ public:
 		Right
 	};
 public:
+	Rect2() = default;
 	Rect2(float left_in, float right_in, float top_in, float bottom_in);
 	void Move(const Vec2& disp);
 	void CollisionBoundary(Vec2& pos, Vec2& vel);
+	bool IsOverlappingWith(const Rect2& rect) const;
 public:
 	float left;
 	float right;

@@ -332,9 +332,9 @@ void Graphics::DrawRect2(const Rect2 & rect, Color c)
 		std::swap(y, y1);
 	}
 
-	for (int i = x; i <= x1; i++)
+	for (int i = x; i < x1; i++)
 	{
-		for (int j = y; j <= y1; j++)
+		for (int j = y; j < y1; j++)
 		{
 			PutPixel(i, j, c);
 		}
