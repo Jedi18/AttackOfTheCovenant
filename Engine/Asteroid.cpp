@@ -10,7 +10,32 @@ Asteroid::Asteroid(Vec2 & pos_in, Vec2 & vel_in, int asteroid_no_in)
 {
 }
 
+void Asteroid::Update(const float dt)
+{
+	pos += vel * dt;
+
+	rect.Move(pos);
+
+	CollisionBoundary();
+}
+
 void Asteroid::Draw(Graphics & gfx) const
 {
-	SpriteCodex::DrawAsteroid0(pos, gfx);
+	if (!destroyed)
+	{
+		SpriteCodex::DrawAsteroid0(pos, gfx);
+	}
+}
+
+void Asteroid::CollisionBoundary()
+{
+	if (!destroyed)
+	{
+		rect.CollisionBoundary(pos, vel);
+
+		if (rect.lastCollision == Rect2::LastCollision::Bottom)
+		{
+			destroyed = true;
+		}
+	}
 }

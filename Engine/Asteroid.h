@@ -9,7 +9,9 @@ class Asteroid
 	// Position is stored in terms of screen coordinates of top left corner
 public:
 	Asteroid(Vec2& pos, Vec2& vel, int asteroid_no);
+	void Update(const float dt);
 	void Draw(Graphics& gfx) const;
+	void CollisionBoundary();
 private:
 	int asteroid_no;
 	static constexpr int no_asteroid_types = 2;
@@ -18,4 +20,5 @@ private:
 	Vec2 pos;
 	Vec2 vel;
 	Rect2 rect;
+	bool destroyed = false;
 };

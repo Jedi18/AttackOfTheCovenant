@@ -26,7 +26,7 @@ Game::Game(MainWindow& wnd)
 	wnd(wnd),
 	gfx(wnd),
 	ship(Vec2(100, 100), Vec2(200, 200)),
-	ast0(Vec2(400, 500), Vec2(0, 50), 0)
+	ast0(Vec2(400, 50), Vec2(0, 200), 0)
 {
 }
 
@@ -42,7 +42,7 @@ void Game::UpdateModel()
 {
 	const float dt = ft.Mark();
 	ship.Update(wnd.kbd, dt);
-	ship.CollisionBoundary();
+	ast0.Update(dt);
 }
 
 void Game::ComposeFrame()

@@ -43,36 +43,11 @@ void Ship::Update(const Keyboard & kbd,const float dt)
 
 	pos += vel * dt;
 	rect.Move(pos);
+
+	CollisionBoundary();
 }
 
 void Ship::CollisionBoundary()
 {
-	float left = pos.x;
-	float right = pos.x + width;
-	float top = pos.y;
-	float down = pos.y + height;
-
-	if (left < 0)
-	{
-		pos.x = 0;
-		vel.x = 0;
-	}
-
-	if (right >= Graphics::ScreenWidth)
-	{
-		pos.x = Graphics::ScreenWidth - 1 - width;
-		vel.x = 0;
-	}
-
-	if (top < 0)
-	{
-		pos.y = 0;
-		vel.y = 0;
-	}
-
-	if (down >= Graphics::ScreenHeight)
-	{
-		pos.y = Graphics::ScreenHeight - 1 - height;
-		vel.y = 0;
-	}
+	rect.CollisionBoundary(pos, vel);
 }
