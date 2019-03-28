@@ -5,7 +5,8 @@ Ship::Ship(Vec2 & pos_in, Vec2 & vel_in, float size, Color c)
 	pos(pos_in),
 	vel(vel_in),
 	rect(pos_in.x, pos_in.x + size, pos_in.y, pos_in.y + size),
-	speed(vel.GetLength())
+	speed(vel.GetLength()),
+	c(c)
 {
 }
 

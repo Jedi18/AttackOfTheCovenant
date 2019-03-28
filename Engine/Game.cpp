@@ -25,7 +25,7 @@ Game::Game(MainWindow& wnd)
 	:
 	wnd(wnd),
 	gfx(wnd),
-	ship(Vec2(100, 100), Vec2(50, 50), 100, Colors::Cyan)
+	ship(Vec2(100, 100), Vec2(50, 50), 50, Colors::Green)
 {
 }
 
