@@ -28,19 +28,9 @@ Game::Game(MainWindow& wnd)
 	gfx(wnd),
 	ship(Vec2(100, 600), Vec2(200, 200)),
 	ast0(Vec2(100, 50), Vec2(0, 200), 0),
-	rng(rd())
+	rng(rd()),
+	stars(rng, Vec2(0, -100))
 {
-	std::uniform_int_distribution<int> xDist(2, Graphics::ScreenWidth - 3);
-	std::uniform_int_distribution<int> yDist(2, Graphics::ScreenHeight - 3);
-
-	int i = 0;
-
-	while (i < nStars)
-	{
-		xStarPoints[i] = xDist(rng);
-		yStarPoints[i] = yDist(rng);
-		i++;
-	}
 }
 
 void Game::Go()
@@ -64,17 +54,16 @@ void Game::UpdateModel()
 	}
 	
 	ast0.LaserCollision(laserList, nLasers);
+	stars.UpdateStars(rng, dt);
 }
 
 void Game::ComposeFrame()
 {
-	// Draw Stars
-	SpriteCodex::DrawStars(gfx, nStars, xStarPoints, yStarPoints);
-
 	ship.Draw(gfx);
 	ast0.Draw(gfx);
 	for (int i = 0; i < nLasers; i++)
 	{
 		laserList[i].Draw(gfx);
 	}
+	stars.Draw(gfx);
 }

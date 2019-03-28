@@ -3702,28 +3702,21 @@ void SpriteCodex::DrawAsteroid1(const Vec2 & topLeft, Graphics & gfx)
 
 }
 
-void SpriteCodex::DrawStars(Graphics & gfx, int nStars, int xPoints[], int yPoints[])
+void SpriteCodex::DrawStars(Graphics & gfx, int x, int y)
 {
-	int i = 0;
-	while (i < nStars)
-	{
-		int x = xPoints[i];
-		int y = yPoints[i];
 
-		gfx.PutPixel(x, y, Colors::White);
-		gfx.PutPixel(x + 1, y, Colors::White);
-		gfx.PutPixel(x + 2, y, Colors::White);
-		gfx.PutPixel(x - 1, y, Colors::White);
-		gfx.PutPixel(x - 2, y, Colors::White);
-		gfx.PutPixel(x, y + 1, Colors::White);
-		gfx.PutPixel(x, y + 2, Colors::White);
-		gfx.PutPixel(x, y - 1, Colors::White);
-		gfx.PutPixel(x, y - 2, Colors::White);
-		gfx.PutPixel(x + 1, y + 1, Colors::White);
-		gfx.PutPixel(x + 1, y - 1, Colors::White);
-		gfx.PutPixel(x - 1, y + 1, Colors::White);
-		gfx.PutPixel(x - 1, y - 1, Colors::White);
+	gfx.PutPixel(x, y, Colors::White);
+	gfx.PutPixel(x + 1, y, Colors::White);
+	gfx.PutPixel(x + 2, y, Colors::White);
+	gfx.PutPixel(x - 1, y, Colors::White);
+	gfx.PutPixel(x - 2, y, Colors::White);
+	gfx.PutPixel(x, y + 1, Colors::White);
+	gfx.PutPixel(x, y + 2, Colors::White);
+	gfx.PutPixel(x, y - 1, Colors::White);
+	gfx.PutPixel(x, y - 2, Colors::White);
+	gfx.PutPixel(x + 1, y + 1, Colors::White);
+	gfx.PutPixel(x + 1, y - 1, Colors::White);
+	gfx.PutPixel(x - 1, y + 1, Colors::White);
+	gfx.PutPixel(x - 1, y - 1, Colors::White);
 
-		i++;
-	}
 }
