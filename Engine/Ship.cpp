@@ -1,4 +1,5 @@
 #include "Ship.h"
+#include "SpriteCodex.h"
 
 Ship::Ship(Vec2 & pos_in, Vec2 & vel_in, float size, Color c)
 	:
@@ -12,29 +13,29 @@ Ship::Ship(Vec2 & pos_in, Vec2 & vel_in, float size, Color c)
 
 void Ship::Draw(Graphics& gfx) const
 {
-	gfx.DrawRect2(rect, c);
+	SpriteCodex::DrawShip(pos, gfx);
 }
 
 void Ship::Update(const Keyboard & kbd, float dt)
 {
-	Vec2 direction = vel.GetNormalized();
+	Vec2 direction = { 0.0f, 0.0f };
 
-	if (kbd.KeyIsPressed(VK_UP))
+	if (kbd.KeyIsPressed(VK_UP) || kbd.KeyIsPressed(0x57))
 	{
 		direction += {0.0f, -1.0f};
 	}
 
-	if (kbd.KeyIsPressed(VK_DOWN))
+	if (kbd.KeyIsPressed(VK_DOWN) || kbd.KeyIsPressed(0x53))
 	{
 		direction += {0.0f, 1.0f};
 	}
 
-	if (kbd.KeyIsPressed(VK_LEFT))
+	if (kbd.KeyIsPressed(VK_LEFT) || kbd.KeyIsPressed(0x41))
 	{
 		direction += {-1.0f, 0.0f};
 	}
 
-	if (kbd.KeyIsPressed(VK_RIGHT))
+	if (kbd.KeyIsPressed(VK_RIGHT) || kbd.KeyIsPressed(0x44))
 	{
 		direction += {1.0f, 0.0f};
 	}
