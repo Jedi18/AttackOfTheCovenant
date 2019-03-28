@@ -26,5 +26,5 @@ private:
 	static constexpr Color laserColor = Colors::Red;
 	// To allow a small time gap between lasers being shot
 	float shootTimer = 0.0f;
-	static constexpr float shootTimeGap = 0.125f;
+	static constexpr float shootTimeGap = 0.025f;
 };

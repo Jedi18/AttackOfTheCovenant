@@ -28,6 +28,7 @@
 #include "Asteroid.h"
 #include "Laser.h"
 #include <vector>
+#include <random>
 
 class Game
 {
@@ -47,9 +48,16 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	static constexpr int nStars = 30;
+
+	int xStarPoints[nStars];
+	int yStarPoints[nStars];
+
 	FrameTimer ft;
 	Ship ship;
 	Asteroid ast0;
+	std::random_device rd;
+	std::mt19937 rng;
 	int nLasers = 0;
 	std::vector<Laser> laserList;
 	/********************************/
