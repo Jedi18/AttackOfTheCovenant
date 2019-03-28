@@ -7,14 +7,17 @@
 
 class Ship
 {
+	//Position is stored in terms of screen coordinates of top left corner
 public:
-	Ship(Vec2& pos_in, Vec2& vel_in, float size, Color c);
+	Ship(Vec2& pos_in, Vec2& vel_in);
 	void Draw(Graphics& gfx) const;
-	void Update(const Keyboard& kbd, float dt);
+	void Update(const Keyboard& kbd,const float dt);
+	void CollisionBoundary();
 private:
 	Vec2 pos;
 	Vec2 vel;
 	float speed;
 	Rect2 rect;
-	Color c;
+	static constexpr int width = 50;
+	static constexpr int height = 50;
 };

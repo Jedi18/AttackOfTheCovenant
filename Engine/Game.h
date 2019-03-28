@@ -25,6 +25,7 @@
 #include "Graphics.h"
 #include "FrameTimer.h"
 #include "Ship.h"
+#include "Asteroid.h"
 
 class Game
 {
@@ -46,5 +47,6 @@ private:
 	/*  User Variables              */
 	FrameTimer ft;
 	Ship ship;
+	Asteroid ast0;
 	/********************************/
 };
