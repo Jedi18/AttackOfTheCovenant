@@ -27,6 +27,7 @@
 #include "Ship.h"
 #include "Asteroid.h"
 #include "Laser.h"
+#include <vector>
 
 class Game
 {
@@ -49,7 +50,7 @@ private:
 	FrameTimer ft;
 	Ship ship;
 	Asteroid ast0;
-	static constexpr int nLasers = 1;
-	Laser laserList[nLasers];
+	int nLasers = 0;
+	std::vector<Laser> laserList;
 	/********************************/
 };

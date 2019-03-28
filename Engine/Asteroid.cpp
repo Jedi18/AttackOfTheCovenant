@@ -40,7 +40,7 @@ void Asteroid::CollisionBoundary()
 	}
 }
 
-void Asteroid::LaserCollision(Laser laserList[], int nLasers)
+void Asteroid::LaserCollision(std::vector<Laser> laserList, int nLasers)
 {
 	if (!destroyed)
 	{

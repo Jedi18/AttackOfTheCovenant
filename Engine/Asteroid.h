@@ -4,6 +4,7 @@
 #include "Vec2.h"
 #include "Rect2.h"
 #include "Laser.h"
+#include <vector>
 
 class Asteroid
 {
@@ -13,7 +14,7 @@ public:
 	void Update(const float dt);
 	void Draw(Graphics& gfx) const;
 	void CollisionBoundary();
-	void LaserCollision(Laser laserList[], int nLasers);
+	void LaserCollision(std::vector<Laser> laserList, int nLasers);
 private:
 	int asteroid_no;
 	static constexpr int no_asteroid_types = 2;

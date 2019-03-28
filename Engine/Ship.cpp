@@ -15,7 +15,7 @@ void Ship::Draw(Graphics& gfx) const
 	SpriteCodex::DrawShip(pos, gfx);
 }
 
-void Ship::Update(const Keyboard & kbd,const float dt)
+void Ship::Update(const Keyboard & kbd,const float dt, std::vector<Laser> &lasers, int& nLasers)
 {
 	Vec2 direction = { 0.0f, 0.0f };
 
@@ -42,12 +42,32 @@ void Ship::Update(const Keyboard & kbd,const float dt)
 	vel = direction.GetNormalized() * speed;
 
 	pos += vel * dt;
-	rect.Move(pos);
 
+	// Shoot the laser
+	if (kbd.KeyIsPressed(VK_SPACE))
+	{
+		if (shootTimer > shootTimeGap)
+		{
+			ShootLaser(lasers, nLasers);
+			shootTimer = 0;
+		}
+		else 
+		{
+			shootTimer += dt;
+		}
+	}
+
+	rect.Move(pos);
 	CollisionBoundary();
 }
 
 void Ship::CollisionBoundary()
 {
 	rect.CollisionBoundary(pos, vel);
+}
+
+void Ship::ShootLaser(std::vector<Laser> &lasers, int& nLasers)
+{
+	lasers.push_back(Laser(Vec2(rect.left + width/2, rect.top), Vec2(0, -300), laserColor));
+	nLasers++;
 }
