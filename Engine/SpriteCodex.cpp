@@ -2375,14 +2375,14 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 	int x = (int)topLeft.x;
 	int y = (int)topLeft.y;
 
-	if (y - 0 >= 0) {
+	if (y + 0 >= 0) {
 		gfx.PutPixel(25 + x, 0 + y, 127, 127, 127);
 		gfx.PutPixel(26 + x, 0 + y, 223, 223, 223);
 		gfx.PutPixel(27 + x, 0 + y, 217, 217, 217);
 		gfx.PutPixel(28 + x, 0 + y, 215, 215, 215);
 		gfx.PutPixel(29 + x, 0 + y, 208, 208, 208);
 		gfx.PutPixel(30 + x, 0 + y, 152, 152, 152);
-	}if (y - 1 >= 0) {
+	}if (y + 1 >= 0) {
 		gfx.PutPixel(24 + x, 1 + y, 204, 204, 204);
 		gfx.PutPixel(25 + x, 1 + y, 219, 219, 219);
 		gfx.PutPixel(26 + x, 1 + y, 220, 220, 220);
@@ -2394,7 +2394,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(32 + x, 1 + y, 175, 175, 175);
 		gfx.PutPixel(33 + x, 1 + y, 182, 182, 182);
 		gfx.PutPixel(34 + x, 1 + y, 63, 63, 63);
-	}if (y - 2 >= 0) {
+	}if (y + 2 >= 0) {
 		gfx.PutPixel(23 + x, 2 + y, 223, 223, 223);
 		gfx.PutPixel(24 + x, 2 + y, 238, 238, 238);
 		gfx.PutPixel(25 + x, 2 + y, 218, 218, 218);
@@ -2408,7 +2408,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(33 + x, 2 + y, 154, 154, 154);
 		gfx.PutPixel(34 + x, 2 + y, 169, 169, 169);
 		gfx.PutPixel(35 + x, 2 + y, 179, 179, 179);
-	}if (y - 3 >= 0) {
+	}if (y + 3 >= 0) {
 		gfx.PutPixel(22 + x, 3 + y, 229, 229, 229);
 		gfx.PutPixel(23 + x, 3 + y, 248, 248, 248);
 		gfx.PutPixel(24 + x, 3 + y, 228, 228, 228);
@@ -2425,7 +2425,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(35 + x, 3 + y, 192, 192, 192);
 		gfx.PutPixel(36 + x, 3 + y, 206, 206, 206);
 		gfx.PutPixel(37 + x, 3 + y, 199, 199, 199);
-	}if (y - 4 >= 0) {
+	}if (y + 4 >= 0) {
 		gfx.PutPixel(21 + x, 4 + y, 237, 237, 237);
 		gfx.PutPixel(22 + x, 4 + y, 250, 250, 250);
 		gfx.PutPixel(23 + x, 4 + y, 238, 238, 238);
@@ -2445,7 +2445,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(37 + x, 4 + y, 236, 236, 236);
 		gfx.PutPixel(38 + x, 4 + y, 181, 181, 181);
 		gfx.PutPixel(39 + x, 4 + y, 85, 85, 85);
-	}if (y - 5 >= 0) {
+	}if (y + 5 >= 0) {
 		gfx.PutPixel(20 + x, 5 + y, 235, 235, 235);
 		gfx.PutPixel(21 + x, 5 + y, 249, 249, 249);
 		gfx.PutPixel(22 + x, 5 + y, 242, 242, 242);
@@ -2467,7 +2467,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(38 + x, 5 + y, 142, 142, 142);
 		gfx.PutPixel(39 + x, 5 + y, 86, 86, 86);
 		gfx.PutPixel(40 + x, 5 + y, 42, 42, 42);
-	}if (y - 6 >= 0) {
+	}if (y + 6 >= 0) {
 		gfx.PutPixel(19 + x, 6 + y, 236, 236, 236);
 		gfx.PutPixel(20 + x, 6 + y, 252, 252, 252);
 		gfx.PutPixel(21 + x, 6 + y, 249, 249, 249);
@@ -2490,7 +2490,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(38 + x, 6 + y, 77, 77, 77);
 		gfx.PutPixel(39 + x, 6 + y, 46, 46, 46);
 		gfx.PutPixel(40 + x, 6 + y, 22, 22, 22);
-	}if (y - 7 >= 0) {
+	}if (y + 7 >= 0) {
 		gfx.PutPixel(18 + x, 7 + y, 223, 223, 223);
 		gfx.PutPixel(19 + x, 7 + y, 250, 250, 250);
 		gfx.PutPixel(20 + x, 7 + y, 243, 243, 243);
@@ -2514,7 +2514,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(38 + x, 7 + y, 128, 128, 128);
 		gfx.PutPixel(39 + x, 7 + y, 91, 91, 91);
 		gfx.PutPixel(40 + x, 7 + y, 33, 33, 33);
-	}if (y - 8 >= 0) {
+	}if (y + 8 >= 0) {
 		gfx.PutPixel(17 + x, 8 + y, 196, 196, 196);
 		gfx.PutPixel(18 + x, 8 + y, 241, 241, 241);
 		gfx.PutPixel(19 + x, 8 + y, 240, 240, 240);
@@ -2540,7 +2540,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(39 + x, 8 + y, 150, 150, 150);
 		gfx.PutPixel(40 + x, 8 + y, 129, 129, 129);
 		gfx.PutPixel(41 + x, 8 + y, 19, 19, 19);
-	}if (y - 9 >= 0) {
+	}if (y + 9 >= 0) {
 		gfx.PutPixel(16 + x, 9 + y, 191, 191, 191);
 		gfx.PutPixel(17 + x, 9 + y, 240, 240, 240);
 		gfx.PutPixel(18 + x, 9 + y, 239, 239, 239);
@@ -2567,7 +2567,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(39 + x, 9 + y, 166, 166, 166);
 		gfx.PutPixel(40 + x, 9 + y, 162, 162, 162);
 		gfx.PutPixel(41 + x, 9 + y, 56, 56, 56);
-	}if (y - 10 >= 0) {
+	}if (y + 10 >= 0) {
 		gfx.PutPixel(15 + x, 10 + y, 218, 218, 218);
 		gfx.PutPixel(16 + x, 10 + y, 241, 241, 241);
 		gfx.PutPixel(17 + x, 10 + y, 237, 237, 237);
@@ -2596,7 +2596,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(40 + x, 10 + y, 159, 159, 159);
 		gfx.PutPixel(41 + x, 10 + y, 112, 112, 112);
 		gfx.PutPixel(42 + x, 10 + y, 10, 10, 10);
-	}if (y - 11 >= 0) {
+	}if (y + 11 >= 0) {
 		gfx.PutPixel(13 + x, 11 + y, 127, 127, 127);
 		gfx.PutPixel(14 + x, 11 + y, 230, 230, 230);
 		gfx.PutPixel(15 + x, 11 + y, 242, 242, 242);
@@ -2627,7 +2627,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(40 + x, 11 + y, 135, 135, 135);
 		gfx.PutPixel(41 + x, 11 + y, 116, 116, 116);
 		gfx.PutPixel(42 + x, 11 + y, 52, 52, 52);
-	}if (y - 12 >= 0) {
+	}if (y + 12 >= 0) {
 		gfx.PutPixel(12 + x, 12 + y, 127, 127, 127);
 		gfx.PutPixel(13 + x, 12 + y, 235, 235, 235);
 		gfx.PutPixel(14 + x, 12 + y, 245, 245, 245);
@@ -2660,7 +2660,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(41 + x, 12 + y, 98, 98, 98);
 		gfx.PutPixel(42 + x, 12 + y, 52, 52, 52);
 		gfx.PutPixel(43 + x, 12 + y, 2, 2, 2);
-	}if (y - 13 >= 0) {
+	}if (y + 13 >= 0) {
 		gfx.PutPixel(11 + x, 13 + y, 170, 170, 170);
 		gfx.PutPixel(12 + x, 13 + y, 241, 241, 241);
 		gfx.PutPixel(13 + x, 13 + y, 243, 243, 243);
@@ -2694,7 +2694,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(41 + x, 13 + y, 96, 96, 96);
 		gfx.PutPixel(42 + x, 13 + y, 56, 56, 56);
 		gfx.PutPixel(43 + x, 13 + y, 4, 4, 4);
-	}if (y - 14 >= 0) {
+	}if (y + 14 >= 0) {
 		gfx.PutPixel(10 + x, 14 + y, 127, 127, 127);
 		gfx.PutPixel(11 + x, 14 + y, 236, 236, 236);
 		gfx.PutPixel(12 + x, 14 + y, 234, 234, 234);
@@ -2729,7 +2729,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(41 + x, 14 + y, 122, 122, 122);
 		gfx.PutPixel(42 + x, 14 + y, 96, 96, 96);
 		gfx.PutPixel(43 + x, 14 + y, 16, 16, 16);
-	}if (y - 15 >= 0) {
+	}if (y + 15 >= 0) {
 		gfx.PutPixel(9 + x, 15 + y, 127, 127, 127);
 		gfx.PutPixel(10 + x, 15 + y, 235, 235, 235);
 		gfx.PutPixel(11 + x, 15 + y, 221, 221, 221);
@@ -2765,7 +2765,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(41 + x, 15 + y, 152, 152, 152);
 		gfx.PutPixel(42 + x, 15 + y, 134, 134, 134);
 		gfx.PutPixel(43 + x, 15 + y, 46, 46, 46);
-	}if (y - 16 >= 0) {
+	}if (y + 16 >= 0) {
 		gfx.PutPixel(9 + x, 16 + y, 223, 223, 223);
 		gfx.PutPixel(10 + x, 16 + y, 220, 220, 220);
 		gfx.PutPixel(11 + x, 16 + y, 179, 179, 179);
@@ -2801,7 +2801,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(41 + x, 16 + y, 123, 123, 123);
 		gfx.PutPixel(42 + x, 16 + y, 120, 120, 120);
 		gfx.PutPixel(43 + x, 16 + y, 72, 72, 72);
-	}if (y - 17 >= 0) {
+	}if (y + 17 >= 0) {
 		gfx.PutPixel(8 + x, 17 + y, 202, 202, 202);
 		gfx.PutPixel(9 + x, 17 + y, 236, 236, 236);
 		gfx.PutPixel(10 + x, 17 + y, 220, 220, 220);
@@ -2838,7 +2838,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(41 + x, 17 + y, 95, 95, 95);
 		gfx.PutPixel(42 + x, 17 + y, 96, 96, 96);
 		gfx.PutPixel(43 + x, 17 + y, 74, 74, 74);
-	}if (y - 18 >= 0) {
+	}if (y + 18 >= 0) {
 		gfx.PutPixel(6 + x, 18 + y, 127, 127, 127);
 		gfx.PutPixel(7 + x, 18 + y, 221, 221, 221);
 		gfx.PutPixel(8 + x, 18 + y, 224, 224, 224);
@@ -2878,7 +2878,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(42 + x, 18 + y, 75, 75, 75);
 		gfx.PutPixel(43 + x, 18 + y, 66, 66, 66);
 		gfx.PutPixel(44 + x, 18 + y, 4, 4, 4);
-	}if (y - 19 >= 0) {
+	}if (y + 19 >= 0) {
 		gfx.PutPixel(5 + x, 19 + y, 201, 201, 201);
 		gfx.PutPixel(6 + x, 19 + y, 230, 230, 230);
 		gfx.PutPixel(7 + x, 19 + y, 232, 232, 232);
@@ -2919,7 +2919,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(42 + x, 19 + y, 78, 78, 78);
 		gfx.PutPixel(43 + x, 19 + y, 68, 68, 68);
 		gfx.PutPixel(44 + x, 19 + y, 9, 9, 9);
-	}if (y - 20 >= 0) {
+	}if (y + 20 >= 0) {
 		gfx.PutPixel(4 + x, 20 + y, 175, 175, 175);
 		gfx.PutPixel(5 + x, 20 + y, 234, 234, 234);
 		gfx.PutPixel(6 + x, 20 + y, 202, 202, 202);
@@ -2961,7 +2961,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(42 + x, 20 + y, 56, 56, 56);
 		gfx.PutPixel(43 + x, 20 + y, 48, 48, 48);
 		gfx.PutPixel(44 + x, 20 + y, 5, 5, 5);
-	}if (y - 21 >= 0) {
+	}if (y + 21 >= 0) {
 		gfx.PutPixel(4 + x, 21 + y, 219, 219, 219);
 		gfx.PutPixel(5 + x, 21 + y, 229, 229, 229);
 		gfx.PutPixel(6 + x, 21 + y, 212, 212, 212);
@@ -3002,7 +3002,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(41 + x, 21 + y, 44, 44, 44);
 		gfx.PutPixel(42 + x, 21 + y, 53, 53, 53);
 		gfx.PutPixel(43 + x, 21 + y, 31, 31, 31);
-	}if (y - 22 >= 0) {
+	}if (y + 22 >= 0) {
 		gfx.PutPixel(4 + x, 22 + y, 211, 211, 211);
 		gfx.PutPixel(5 + x, 22 + y, 221, 221, 221);
 		gfx.PutPixel(6 + x, 22 + y, 214, 214, 214);
@@ -3043,7 +3043,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(41 + x, 22 + y, 4, 4, 4);
 		gfx.PutPixel(42 + x, 22 + y, 10, 10, 10);
 		gfx.PutPixel(43 + x, 22 + y, 14, 14, 14);
-	}if (y - 23 >= 0) {
+	}if (y + 23 >= 0) {
 		gfx.PutPixel(3 + x, 23 + y, 85, 85, 85);
 		gfx.PutPixel(4 + x, 23 + y, 191, 191, 191);
 		gfx.PutPixel(5 + x, 23 + y, 178, 178, 178);
@@ -3079,7 +3079,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(35 + x, 23 + y, 48, 48, 48);
 		gfx.PutPixel(36 + x, 23 + y, 60, 60, 60);
 		gfx.PutPixel(37 + x, 23 + y, 1, 1, 1);
-	}if (y - 24 >= 0) {
+	}if (y + 24 >= 0) {
 		gfx.PutPixel(3 + x, 24 + y, 134, 134, 134);
 		gfx.PutPixel(4 + x, 24 + y, 138, 138, 138);
 		gfx.PutPixel(5 + x, 24 + y, 158, 158, 158);
@@ -3115,7 +3115,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(35 + x, 24 + y, 67, 67, 67);
 		gfx.PutPixel(36 + x, 24 + y, 57, 57, 57);
 		gfx.PutPixel(37 + x, 24 + y, 2, 2, 2);
-	}if (y - 25 >= 0) {
+	}if (y + 25 >= 0) {
 		gfx.PutPixel(3 + x, 25 + y, 85, 85, 85);
 		gfx.PutPixel(4 + x, 25 + y, 116, 116, 116);
 		gfx.PutPixel(5 + x, 25 + y, 156, 156, 156);
@@ -3152,7 +3152,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(36 + x, 25 + y, 48, 48, 48);
 		gfx.PutPixel(37 + x, 25 + y, 12, 12, 12);
 		gfx.PutPixel(38 + x, 25 + y, 2, 2, 2);
-	}if (y - 26 >= 0) {
+	}if (y + 26 >= 0) {
 		gfx.PutPixel(4 + x, 26 + y, 136, 136, 136);
 		gfx.PutPixel(5 + x, 26 + y, 185, 185, 185);
 		gfx.PutPixel(6 + x, 26 + y, 162, 162, 162);
@@ -3189,7 +3189,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(37 + x, 26 + y, 2, 2, 2);
 		gfx.PutPixel(38 + x, 26 + y, 6, 6, 6);
 		gfx.PutPixel(39 + x, 26 + y, 1, 1, 1);
-	}if (y - 27 >= 0) {
+	}if (y + 27 >= 0) {
 		gfx.PutPixel(4 + x, 27 + y, 124, 124, 124);
 		gfx.PutPixel(5 + x, 27 + y, 169, 169, 169);
 		gfx.PutPixel(6 + x, 27 + y, 169, 169, 169);
@@ -3225,7 +3225,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(37 + x, 27 + y, 21, 21, 21);
 		gfx.PutPixel(38 + x, 27 + y, 2, 2, 2);
 		gfx.PutPixel(39 + x, 27 + y, 1, 1, 1);
-	}if (y - 28 >= 0) {
+	}if (y + 28 >= 0) {
 		gfx.PutPixel(4 + x, 28 + y, 59, 59, 59);
 		gfx.PutPixel(5 + x, 28 + y, 147, 147, 147);
 		gfx.PutPixel(6 + x, 28 + y, 133, 133, 133);
@@ -3265,7 +3265,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(40 + x, 28 + y, 66, 66, 66);
 		gfx.PutPixel(41 + x, 28 + y, 33, 33, 33);
 		gfx.PutPixel(42 + x, 28 + y, 1, 1, 1);
-	}if (y - 29 >= 0) {
+	}if (y + 29 >= 0) {
 		gfx.PutPixel(5 + x, 29 + y, 137, 137, 137);
 		gfx.PutPixel(6 + x, 29 + y, 123, 123, 123);
 		gfx.PutPixel(7 + x, 29 + y, 166, 166, 166);
@@ -3304,7 +3304,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(41 + x, 29 + y, 108, 108, 108);
 		gfx.PutPixel(42 + x, 29 + y, 77, 77, 77);
 		gfx.PutPixel(43 + x, 29 + y, 19, 19, 19);
-	}if (y - 30 >= 0) {
+	}if (y + 30 >= 0) {
 		gfx.PutPixel(5 + x, 30 + y, 156, 156, 156);
 		gfx.PutPixel(6 + x, 30 + y, 179, 179, 179);
 		gfx.PutPixel(7 + x, 30 + y, 133, 133, 133);
@@ -3345,7 +3345,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(42 + x, 30 + y, 103, 103, 103);
 		gfx.PutPixel(43 + x, 30 + y, 100, 100, 100);
 		gfx.PutPixel(44 + x, 30 + y, 29, 29, 29);
-	}if (y - 31 >= 0) {
+	}if (y + 31 >= 0) {
 		gfx.PutPixel(4 + x, 31 + y, 95, 95, 95);
 		gfx.PutPixel(5 + x, 31 + y, 167, 167, 167);
 		gfx.PutPixel(6 + x, 31 + y, 174, 174, 174);
@@ -3387,7 +3387,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(42 + x, 31 + y, 97, 97, 97);
 		gfx.PutPixel(43 + x, 31 + y, 66, 66, 66);
 		gfx.PutPixel(44 + x, 31 + y, 3, 3, 3);
-	}if (y - 32 >= 0) {
+	}if (y + 32 >= 0) {
 		gfx.PutPixel(4 + x, 32 + y, 159, 159, 159);
 		gfx.PutPixel(5 + x, 32 + y, 165, 165, 165);
 		gfx.PutPixel(6 + x, 32 + y, 163, 163, 163);
@@ -3427,7 +3427,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(40 + x, 32 + y, 91, 91, 91);
 		gfx.PutPixel(41 + x, 32 + y, 65, 65, 65);
 		gfx.PutPixel(42 + x, 32 + y, 22, 22, 22);
-	}if (y - 33 >= 0) {
+	}if (y + 33 >= 0) {
 		gfx.PutPixel(4 + x, 33 + y, 177, 177, 177);
 		gfx.PutPixel(5 + x, 33 + y, 157, 157, 157);
 		gfx.PutPixel(6 + x, 33 + y, 165, 165, 165);
@@ -3467,7 +3467,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(40 + x, 33 + y, 89, 89, 89);
 		gfx.PutPixel(41 + x, 33 + y, 38, 38, 38);
 		gfx.PutPixel(42 + x, 33 + y, 2, 2, 2);
-	}if (y - 34 >= 0) {
+	}if (y + 34 >= 0) {
 		gfx.PutPixel(4 + x, 34 + y, 181, 181, 181);
 		gfx.PutPixel(5 + x, 34 + y, 151, 151, 151);
 		gfx.PutPixel(6 + x, 34 + y, 75, 75, 75);
@@ -3506,7 +3506,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(39 + x, 34 + y, 78, 78, 78);
 		gfx.PutPixel(40 + x, 34 + y, 44, 44, 44);
 		gfx.PutPixel(41 + x, 34 + y, 1, 1, 1);
-	}if (y - 35 >= 0) {
+	}if (y + 35 >= 0) {
 		gfx.PutPixel(4 + x, 35 + y, 193, 193, 193);
 		gfx.PutPixel(5 + x, 35 + y, 179, 179, 179);
 		gfx.PutPixel(6 + x, 35 + y, 128, 128, 128);
@@ -3544,7 +3544,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(38 + x, 35 + y, 79, 79, 79);
 		gfx.PutPixel(39 + x, 35 + y, 57, 57, 57);
 		gfx.PutPixel(40 + x, 35 + y, 1, 1, 1);
-	}if (y - 36 >= 0) {
+	}if (y + 36 >= 0) {
 		gfx.PutPixel(4 + x, 36 + y, 188, 188, 188);
 		gfx.PutPixel(5 + x, 36 + y, 145, 145, 145);
 		gfx.PutPixel(6 + x, 36 + y, 75, 75, 75);
@@ -3581,7 +3581,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(37 + x, 36 + y, 114, 114, 114);
 		gfx.PutPixel(38 + x, 36 + y, 37, 37, 37);
 		gfx.PutPixel(39 + x, 36 + y, 14, 14, 14);
-	}if (y - 37 >= 0) {
+	}if (y + 37 >= 0) {
 		gfx.PutPixel(3 + x, 37 + y, 145, 145, 145);
 		gfx.PutPixel(4 + x, 37 + y, 180, 180, 180);
 		gfx.PutPixel(5 + x, 37 + y, 128, 128, 128);
@@ -3618,7 +3618,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(36 + x, 37 + y, 121, 121, 121);
 		gfx.PutPixel(37 + x, 37 + y, 108, 108, 108);
 		gfx.PutPixel(38 + x, 37 + y, 31, 31, 31);
-	}if (y - 38 >= 0) {
+	}if (y + 38 >= 0) {
 		gfx.PutPixel(4 + x, 38 + y, 165, 165, 165);
 		gfx.PutPixel(5 + x, 38 + y, 67, 67, 67);
 		gfx.PutPixel(6 + x, 38 + y, 5, 5, 5);
@@ -3649,7 +3649,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(35 + x, 38 + y, 127, 127, 127);
 		gfx.PutPixel(36 + x, 38 + y, 112, 112, 112);
 		gfx.PutPixel(37 + x, 38 + y, 38, 38, 38);
-	}if (y - 39 >= 0) {
+	}if (y + 39 >= 0) {
 		gfx.PutPixel(14 + x, 39 + y, 3, 3, 3);
 		gfx.PutPixel(15 + x, 39 + y, 41, 41, 41);
 		gfx.PutPixel(16 + x, 39 + y, 33, 33, 33);
@@ -3673,7 +3673,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(34 + x, 39 + y, 125, 125, 125);
 		gfx.PutPixel(35 + x, 39 + y, 86, 86, 86);
 		gfx.PutPixel(36 + x, 39 + y, 13, 13, 13);
-	}if (y - 40 >= 0) {
+	}if (y + 40 >= 0) {
 		gfx.PutPixel(17 + x, 40 + y, 7, 7, 7);
 		gfx.PutPixel(18 + x, 40 + y, 4, 4, 4);
 		gfx.PutPixel(20 + x, 40 + y, 1, 1, 1);
@@ -3690,7 +3690,7 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(32 + x, 40 + y, 116, 116, 116);
 		gfx.PutPixel(33 + x, 40 + y, 109, 109, 109);
 		gfx.PutPixel(34 + x, 40 + y, 53, 53, 53);
-	}if (y - 41 >= 0) {
+	}if (y + 41 >= 0) {
 		gfx.PutPixel(21 + x, 41 + y, 33, 33, 33);
 		gfx.PutPixel(22 + x, 41 + y, 4, 4, 4);
 		gfx.PutPixel(23 + x, 41 + y, 7, 7, 7);
@@ -3701,14 +3701,14 @@ void SpriteCodex::DrawAsteroid0Spawn(const Vec2 & topLeft, Graphics & gfx)
 		gfx.PutPixel(31 + x, 41 + y, 91, 91, 91);
 		gfx.PutPixel(32 + x, 41 + y, 72, 72, 72);
 		gfx.PutPixel(33 + x, 41 + y, 14, 14, 14);
-	}if (y - 42 >= 0) {
+	}if (y + 42 >= 0) {
 		gfx.PutPixel(21 + x, 42 + y, 1, 1, 1);
 		gfx.PutPixel(28 + x, 42 + y, 23, 23, 23);
 		gfx.PutPixel(29 + x, 42 + y, 39, 39, 39);
 		gfx.PutPixel(30 + x, 42 + y, 51, 51, 51);
 		gfx.PutPixel(31 + x, 42 + y, 22, 22, 22);
 		gfx.PutPixel(32 + x, 42 + y, 1, 1, 1);
-	}if (y - 43 >= 0) {
+	}if (y + 43 >= 0) {
 		gfx.PutPixel(28 + x, 43 + y, 2, 2, 2);
 	}
 }

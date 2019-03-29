@@ -23,7 +23,7 @@ void Asteroid::Draw(Graphics & gfx) const
 {
 	if (!destroyed)
 	{
-		SpriteCodex::DrawAsteroid0(pos, gfx);
+		SpriteCodex::DrawAsteroid0Spawn(pos, gfx);
 	}
 }
 
@@ -31,7 +31,18 @@ void Asteroid::CollisionBoundary()
 {
 	if (!destroyed)
 	{
-		rect.CollisionBoundary(pos, vel);
+		if (!enteredPlayingGround)
+		{
+			if (pos.y >= 0)
+			{
+				disableCollisionBoundary = false;
+				enteredPlayingGround = true;
+			}
+		}
+		if (!disableCollisionBoundary)
+		{
+			rect.CollisionBoundary(pos, vel);
+		}
 
 		if (rect.lastCollision == Rect2::LastCollision::Bottom)
 		{

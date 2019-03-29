@@ -27,7 +27,7 @@ Game::Game(MainWindow& wnd)
 	wnd(wnd),
 	gfx(wnd),
 	ship(Vec2(100, 600), Vec2(200, 200)),
-	ast0(Vec2(100, 50), Vec2(0, 200), 0),
+	ast0(Vec2(100, -60), Vec2(0, 200), 0),
 	rng(rd()),
 	stars(rng, Vec2(0, -100))
 {

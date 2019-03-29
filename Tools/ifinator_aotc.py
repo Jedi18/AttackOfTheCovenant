@@ -2,7 +2,7 @@ converted = []
 final = []
 
 def add_if(n):
-    converted.append("if(y - {} >= 0)".format(n))
+    converted.append("if(y + {} >= 0)".format(n))
     converted.append("{")
 
 def ifinator(lin):

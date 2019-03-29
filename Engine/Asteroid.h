@@ -24,4 +24,6 @@ private:
 	Vec2 vel;
 	Rect2 rect;
 	bool destroyed = false;
+	bool disableCollisionBoundary = true;
+	bool enteredPlayingGround = false;
 };
