@@ -12,6 +12,6 @@ public:
 private:
 	Vec2 vel;
 	static constexpr int nStars = 30;
-	int xStarPoints[nStars];
-	int yStarPoints[nStars];
+	float xStarPoints[nStars];
+	float yStarPoints[nStars];
 };

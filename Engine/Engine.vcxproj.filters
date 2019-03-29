@@ -72,6 +72,9 @@
     <ClInclude Include="StarBackground.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SpawnField.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DXErr.cpp">

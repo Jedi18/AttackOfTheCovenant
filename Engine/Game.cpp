@@ -59,11 +59,11 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
+	stars.Draw(gfx);
 	ship.Draw(gfx);
 	ast0.Draw(gfx);
 	for (int i = 0; i < nLasers; i++)
 	{
 		laserList[i].Draw(gfx);
 	}
-	stars.Draw(gfx);
 }
