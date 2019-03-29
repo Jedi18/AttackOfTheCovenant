@@ -30,6 +30,7 @@
 #include <vector>
 #include <random>
 #include "StarBackground.h"
+#include "SpawnField.h"
 
 class Game
 {
@@ -51,11 +52,13 @@ private:
 	/*  User Variables              */
 	FrameTimer ft;
 	Ship ship;
-	Asteroid ast0;
 	std::random_device rd;
 	std::mt19937 rng;
 	int nLasers = 0;
+	int nAsteroids = 0;
 	std::vector<Laser> laserList;
+	std::vector<Asteroid> asteroidList;
 	StarBackground stars;
+	SpawnField spawnField;
 	/********************************/
 };

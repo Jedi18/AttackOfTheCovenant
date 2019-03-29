@@ -22,7 +22,7 @@ def ifinator(lin):
             converted.append(line)
     converted.append("}")
 
-with open(r"C:\Users\targe\Downloads\Chili DirectX Framework\PutPixelImages\asteroid0.txt", "r") as f:
+with open(r"C:\Users\targe\Downloads\Chili DirectX Framework\PutPixelImages\asteroid1.txt", "r") as f:
     lines = f.readlines()
     ifinator(lines)
 
@@ -32,5 +32,5 @@ for l in converted:
     except:
         final.append(l[3:].encode('ascii'))
 
-with open(r"C:\Users\targe\Downloads\Chili DirectX Framework\PutPixelImages\asteroid0_converted.txt", "wb") as f:
+with open(r"C:\Users\targe\Downloads\Chili DirectX Framework\PutPixelImages\asteroid1_converted.txt", "wb") as f:
     f.writelines(final)

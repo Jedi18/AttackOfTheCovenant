@@ -27,9 +27,9 @@ Game::Game(MainWindow& wnd)
 	wnd(wnd),
 	gfx(wnd),
 	ship(Vec2(100, 600), Vec2(200, 200)),
-	ast0(Vec2(100, -60), Vec2(0, 200), 0),
 	rng(rd()),
-	stars(rng, Vec2(0, -100))
+	stars(rng, Vec2(0, -100)),
+	spawnField(-60.0f, 0.5f, asteroidList, rng)
 {
 }
 
@@ -45,15 +45,25 @@ void Game::UpdateModel()
 {
 	const float dt = ft.Mark();
 
+	spawnField.SpawnAsteroids(dt, nAsteroids);
+
 	ship.Update(wnd.kbd, dt, laserList, nLasers);
-	ast0.Update(dt);
+
+	for (int i = 0; i < nAsteroids; i++)
+	{
+		asteroidList[i].Update(dt);
+	}
 
 	for (int i = 0; i < nLasers; i++)
 	{
 		laserList[i].Update(dt);
 	}
 	
-	ast0.LaserCollision(laserList, nLasers);
+	for (int i = 0; i < nAsteroids; i++)
+	{
+		asteroidList[i].LaserCollision(laserList, nLasers);
+	}
+
 	stars.UpdateStars(rng, dt);
 }
 
@@ -61,7 +71,11 @@ void Game::ComposeFrame()
 {
 	stars.Draw(gfx);
 	ship.Draw(gfx);
-	ast0.Draw(gfx);
+	for (int i = 0; i < nAsteroids; i++)
+	{
+		asteroidList[i].Draw(gfx);
+	}
+	
 	for (int i = 0; i < nLasers; i++)
 	{
 		laserList[i].Draw(gfx);

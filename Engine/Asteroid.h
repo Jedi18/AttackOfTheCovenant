@@ -15,9 +15,10 @@ public:
 	void Draw(Graphics& gfx) const;
 	void CollisionBoundary();
 	void LaserCollision(std::vector<Laser> laserList, int nLasers);
+public:
+	static constexpr int no_asteroid_types = 2;
 private:
 	int asteroid_no;
-	static constexpr int no_asteroid_types = 2;
 	float width[no_asteroid_types] = { 50, 40 };
 	float height[no_asteroid_types] = { 50, 55 };
 	Vec2 pos;

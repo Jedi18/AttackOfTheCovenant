@@ -23,7 +23,7 @@ void Asteroid::Draw(Graphics & gfx) const
 {
 	if (!destroyed)
 	{
-		SpriteCodex::DrawAsteroid0Spawn(pos, gfx);
+		SpriteCodex::DrawAsteroid(asteroid_no, pos, gfx);
 	}
 }
 

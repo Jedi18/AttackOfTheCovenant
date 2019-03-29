@@ -169,6 +169,7 @@
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Rect2.cpp" />
     <ClCompile Include="Ship.cpp" />
+    <ClCompile Include="SpawnField.cpp" />
     <ClCompile Include="SpriteCodex.cpp" />
     <ClCompile Include="StarBackground.cpp" />
     <ClCompile Include="Vec2.cpp" />
