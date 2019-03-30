@@ -12,11 +12,19 @@ Ship::Ship(Vec2 & pos_in, Vec2 & vel_in)
 
 void Ship::Draw(Graphics& gfx) const
 {
-	SpriteCodex::DrawShip(pos, gfx);
+	if (!destroyed)
+	{
+		SpriteCodex::DrawShip(pos, gfx);
+	}
 }
 
 void Ship::Update(const Keyboard & kbd,const float dt, std::vector<Laser> &lasers, int& nLasers)
 {
+	if (destroyed)
+	{
+		return;
+	}
+
 	Vec2 direction = { 0.0f, 0.0f };
 
 	if (kbd.KeyIsPressed(VK_UP) || kbd.KeyIsPressed(0x57))
@@ -64,6 +72,25 @@ void Ship::Update(const Keyboard & kbd,const float dt, std::vector<Laser> &laser
 void Ship::CollisionBoundary()
 {
 	rect.CollisionBoundary(pos, vel);
+}
+
+void Ship::AsteroidCollision(std::vector<Asteroid>& asteroidList, int& nAsteroids)
+{
+	if (!destroyed)
+	{
+		for (int i = 0; i < nAsteroids; i++)
+		{
+			if (!asteroidList[i].IsDestroyed())
+			{
+				if (rect.IsOverlappingWith(asteroidList[i].GetRect()))
+				{
+					destroyed = true;
+					asteroidList[i].Destroy();
+					break;
+				}
+			}
+		}
+	}
 }
 
 void Ship::ShootLaser(std::vector<Laser> &lasers, int& nLasers)

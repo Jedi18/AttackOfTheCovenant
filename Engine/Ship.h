@@ -6,6 +6,7 @@
 #include "Keyboard.h"
 #include "Laser.h"
 #include <vector>
+#include "Asteroid.h"
 
 class Ship
 {
@@ -15,6 +16,7 @@ public:
 	void Draw(Graphics& gfx) const;
 	void Update(const Keyboard& kbd,const float dt, std::vector<Laser> &lasers, int& nLasers);
 	void CollisionBoundary();
+	void AsteroidCollision(std::vector<Asteroid>& asteroidList, int& nAsteroids);
 	void ShootLaser(std::vector<Laser> &lasers, int& nLasers);
 private:
 	Vec2 pos;
@@ -27,4 +29,5 @@ private:
 	// To allow a small time gap between lasers being shot
 	float shootTimer = 0.0f;
 	static constexpr float shootTimeGap = 0.25f;
+	bool destroyed = false;
 };

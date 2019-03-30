@@ -12,6 +12,11 @@ Asteroid::Asteroid(Vec2 & pos_in, Vec2 & vel_in, int asteroid_no_in)
 
 void Asteroid::Update(const float dt)
 {
+	if (destroyed)
+	{
+		return;
+	}
+
 	pos += vel * dt;
 
 	rect.Move(pos);
@@ -65,4 +70,19 @@ void Asteroid::LaserCollision(std::vector<Laser> laserList, int nLasers)
 			}
 		}
 	}
+}
+
+bool Asteroid::IsDestroyed() const
+{
+	return destroyed;
+}
+
+const Rect2 & Asteroid::GetRect() const
+{
+	return rect;
+}
+
+void Asteroid::Destroy()
+{
+	destroyed = true;
 }

@@ -15,6 +15,9 @@ public:
 	void Draw(Graphics& gfx) const;
 	void CollisionBoundary();
 	void LaserCollision(std::vector<Laser> laserList, int nLasers);
+	bool IsDestroyed() const;
+	const Rect2& GetRect() const;
+	void Destroy();
 public:
 	static constexpr int no_asteroid_types = 2;
 private:

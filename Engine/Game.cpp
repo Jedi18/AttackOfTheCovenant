@@ -49,6 +49,8 @@ void Game::UpdateModel()
 
 	ship.Update(wnd.kbd, dt, laserList, nLasers);
 
+	ship.AsteroidCollision(asteroidList, nAsteroids);
+
 	for (int i = 0; i < nAsteroids; i++)
 	{
 		asteroidList[i].Update(dt);

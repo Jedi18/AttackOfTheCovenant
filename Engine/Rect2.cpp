@@ -57,7 +57,7 @@ void Rect2::CollisionBoundary(Vec2& pos, Vec2& vel)
 
 bool Rect2::IsOverlappingWith(const Rect2 & rect) const
 {
-	if (rect.left >= left && rect.right <= right && rect.top >= top && rect.bottom <= bottom)
+	if (rect.left <= right && rect.right >= left && rect.top <= bottom && rect.bottom >= top)
 	{
 		return true;
 	}
