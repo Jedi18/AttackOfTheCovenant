@@ -65,3 +65,18 @@ bool Rect2::IsOverlappingWith(const Rect2 & rect) const
 		return false;
 	}
 }
+
+bool Rect2::Contains(const Vec2 & point) const
+{
+	return point.x >= left && point.x < right && point.y >= top && point.y < bottom;
+}
+
+float Rect2::GetWidth() const
+{
+	return right - left;
+}
+
+float Rect2::GetHeight() const
+{
+	return bottom - top;
+}

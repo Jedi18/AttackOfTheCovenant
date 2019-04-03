@@ -154,6 +154,7 @@
     <ClInclude Include="SpawnField.h" />
     <ClInclude Include="SpriteCodex.h" />
     <ClInclude Include="StarBackground.h" />
+    <ClInclude Include="Surface.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +173,7 @@
     <ClCompile Include="SpawnField.cpp" />
     <ClCompile Include="SpriteCodex.cpp" />
     <ClCompile Include="StarBackground.cpp" />
+    <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Vec2.cpp" />
   </ItemGroup>
   <ItemGroup>

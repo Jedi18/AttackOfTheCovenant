@@ -82,4 +82,5 @@ void Game::ComposeFrame()
 	{
 		laserList[i].Draw(gfx);
 	}
+
 }

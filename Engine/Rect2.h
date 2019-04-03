@@ -19,6 +19,9 @@ public:
 	void Move(const Vec2& disp);
 	void CollisionBoundary(Vec2& pos, Vec2& vel);
 	bool IsOverlappingWith(const Rect2& rect) const;
+	bool Contains(const Vec2& point) const;
+	float GetWidth() const;
+	float GetHeight() const;
 public:
 	float left;
 	float right;

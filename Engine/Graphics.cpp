@@ -341,6 +341,44 @@ void Graphics::DrawRect2(const Rect2 & rect, Color c)
 	}
 }
 
+void Graphics::DrawSprite(int x, int y, Rect2 srcRect, const Rect2 & clip, const Surface & s, Color chroma)
+{
+	if (x < clip.left)
+	{
+		srcRect.left += clip.left - x;
+		x = clip.left;
+	}
+
+	if (y < clip.top)
+	{
+		srcRect.top += clip.top - y;
+		y = clip.top;
+	}
+
+	if (x + srcRect.right > clip.right)
+	{
+		srcRect.right -= x + srcRect.GetWidth() - clip.right;
+	}
+
+	if (y + srcRect.bottom > clip.bottom)
+	{
+		srcRect.bottom -= y + srcRect.GetHeight() - clip.bottom;
+	}
+
+	for (int sy = srcRect.top; sy < srcRect.bottom; sy++)
+	{
+		for (int sx = srcRect.left; sx < srcRect.right; sx++)
+		{
+			const Color srcPixel = s.GetPixel(sx, sy);
+
+			if (srcPixel != chroma)
+			{
+				PutPixel(x + sx - (int)srcRect.left, x + sy - (int)srcRect.top, srcPixel);
+			}
+		}
+	}
+}
+
 
 //////////////////////////////////////////////////
 //           Graphics Exception
