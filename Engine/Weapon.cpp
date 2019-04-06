@@ -62,9 +62,16 @@ Rect2 & Weapon::GetRect()
 	return rect;
 }
 
-bool Weapon::IsReadyForRevival()
+bool Weapon::IsReadyForRevival(const WeaponType& type)
 {
-	return toBeRespawned;
+	if (myType == type)
+	{
+		return toBeRespawned;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 bool Weapon::IsDestroyed()

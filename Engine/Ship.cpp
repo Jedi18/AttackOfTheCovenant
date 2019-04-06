@@ -57,7 +57,7 @@ void Ship::Update(const Keyboard & kbd, const Mouse& mouse,const float dt, std::
 	{
 		if (shootTimer > shootTimeGap)
 		{
-			ShootWeapon(weapons, nWeapons, WeaponType::LaserProj, Vec2(0,-1));
+			ShootWeapon(weapons, nWeapons, Weapon::WeaponType::LaserProj, Vec2(0,-1));
 			shootTimer = 0;
 		}
 		else 
@@ -73,7 +73,7 @@ void Ship::Update(const Keyboard & kbd, const Mouse& mouse,const float dt, std::
 		{
 			Vec2 direction = (Vec2((float)mouse.GetPosX(), (float)mouse.GetPosY()) - pos).GetNormalized();
 
-			ShootWeapon(weapons, nWeapons, WeaponType::TurretProj, direction);
+			ShootWeapon(weapons, nWeapons, Weapon::WeaponType::TurretProj, direction);
 			turrentShootTimer = 0;
 		}
 		else
@@ -111,11 +111,11 @@ void Ship::AsteroidCollision(std::vector<Asteroid>& asteroidList, int& nAsteroid
 	}
 }
 
-void Ship::ShootWeapon(std::vector<Weapon> &weapons, int& nWeapons, WeaponType type, const Vec2& shootDir)
+void Ship::ShootWeapon(std::vector<Weapon> &weapons, int& nWeapons, Weapon::WeaponType type, const Vec2& shootDir)
 {
 	switch (type)
 	{
-	case WeaponType::LaserProj:
+	case Weapon::WeaponType::LaserProj:
 		if (weaponCount < maxWeaponCount)
 		{
 			weapons.push_back(Laser(Vec2(rect.left + width / 2, rect.top), shootDir * weaponSpeed));
@@ -127,7 +127,7 @@ void Ship::ShootWeapon(std::vector<Weapon> &weapons, int& nWeapons, WeaponType t
 			ShootRecycled(weapons, nWeapons, type, shootDir);
 		}
 		break;
-	case WeaponType::TurretProj:
+	case Weapon::WeaponType::TurretProj:
 		if (weaponCount < maxWeaponCount)
 		{
 			weapons.push_back(BallProjectile(Vec2(rect.left + width / 2, rect.top), shootDir * weaponSpeed));
@@ -141,18 +141,18 @@ void Ship::ShootWeapon(std::vector<Weapon> &weapons, int& nWeapons, WeaponType t
 	}
 }
 
-void Ship::ShootRecycled(std::vector<Weapon>& weapons, int & nWeapons, WeaponType type, const Vec2 & shootDir)
+void Ship::ShootRecycled(std::vector<Weapon>& weapons, int & nWeapons, Weapon::WeaponType type, const Vec2 & shootDir)
 {
 	for (Weapon& wep : weapons)
 	{
-		if (wep.IsReadyForRevival())
+		if (wep.IsReadyForRevival(type))
 		{
 			switch (type)
 			{
-			case WeaponType::LaserProj:
+			case Weapon::WeaponType::LaserProj:
              	wep.Revive(Vec2(rect.left + width / 2, rect.top), shootDir * weaponSpeed);
 				break;
-			case WeaponType::TurretProj:
+			case Weapon::WeaponType::TurretProj:
 				wep.Revive(Vec2(rect.left + width / 2, rect.top), shootDir * weaponSpeed);
 				break;
 			}
