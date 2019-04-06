@@ -18,7 +18,7 @@ void Ship::Draw(Graphics& gfx) const
 	}
 }
 
-void Ship::Update(const Keyboard & kbd,const float dt, std::vector<Laser> &lasers, int& nLasers)
+void Ship::Update(const Keyboard & kbd, const Mouse& mouse,const float dt, std::vector<Laser> &lasers, int& nLasers)
 {
 	if (destroyed)
 	{
@@ -56,12 +56,28 @@ void Ship::Update(const Keyboard & kbd,const float dt, std::vector<Laser> &laser
 	{
 		if (shootTimer > shootTimeGap)
 		{
-			ShootLaser(lasers, nLasers);
+			ShootWeapon(lasers, nLasers, WeaponType::LaserProj, Vec2(0,-1));
 			shootTimer = 0;
 		}
 		else 
 		{
 			shootTimer += dt;
+		}
+	}
+
+	// Shoot turret laser
+	if (mouse.LeftIsPressed())
+	{
+		if (turrentShootTimer > shootTimeGap)
+		{
+			Vec2 direction = (Vec2(mouse.GetPosX(), mouse.GetPosY()) - pos).GetNormalized();
+
+			ShootWeapon(lasers, nLasers, WeaponType::TurretProj, direction);
+			turrentShootTimer = 0;
+		}
+		else
+		{
+			turrentShootTimer += dt;
 		}
 	}
 
@@ -93,8 +109,16 @@ void Ship::AsteroidCollision(std::vector<Asteroid>& asteroidList, int& nAsteroid
 	}
 }
 
-void Ship::ShootLaser(std::vector<Laser> &lasers, int& nLasers)
+void Ship::ShootWeapon(std::vector<Laser>& lasers, int & nLasers, WeaponType type, const Vec2& shootDir)
 {
-	lasers.push_back(Laser(Vec2(rect.left + width/2, rect.top), Vec2(0, -300), laserColor));
-	nLasers++;
+	switch (type)
+	{
+	case WeaponType::LaserProj:
+		lasers.push_back(Laser(Vec2(rect.left + width / 2, rect.top),shootDir * weaponSpeed, laserColor));
+		nLasers++;
+		break;
+	case WeaponType::TurretProj:
+		lasers.push_back(Laser(Vec2(rect.left + width / 2, rect.top),shootDir * weaponSpeed, turretColor));
+		nLasers++;
+	}
 }

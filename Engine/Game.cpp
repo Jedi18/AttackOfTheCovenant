@@ -47,7 +47,7 @@ void Game::UpdateModel()
 
 	spawnField.SpawnAsteroids(dt, nAsteroids);
 
-	ship.Update(wnd.kbd, dt, laserList, nLasers);
+	ship.Update(wnd.kbd,wnd.mouse, dt, laserList, nLasers);
 
 	ship.AsteroidCollision(asteroidList, nAsteroids);
 
