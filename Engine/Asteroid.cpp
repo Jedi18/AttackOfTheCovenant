@@ -112,4 +112,5 @@ void Asteroid::SetRespawnConditions()
 {
 	disableCollisionBoundary = true;
 	enteredPlayingGround = false;
+	rect.lastCollision = Rect2::LastCollision::No;
 }
