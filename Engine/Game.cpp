@@ -47,7 +47,7 @@ void Game::UpdateModel()
 
 	spawnField.SpawnAsteroids(dt, nAsteroids);
 
-	ship.Update(wnd.kbd,wnd.mouse, dt, laserList, nLasers);
+	ship.Update(wnd.kbd,wnd.mouse, dt, weaponList, nWeapons);
 
 	ship.AsteroidCollision(asteroidList, nAsteroids);
 
@@ -56,14 +56,14 @@ void Game::UpdateModel()
 		asteroidList[i].Update(dt);
 	}
 
-	for (int i = 0; i < nLasers; i++)
+	for (int i = 0; i < nWeapons; i++)
 	{
-		laserList[i].Update(dt);
+		weaponList[i].Update(dt);
 	}
 	
 	for (int i = 0; i < nAsteroids; i++)
 	{
-		asteroidList[i].LaserCollision(laserList, nLasers);
+		asteroidList[i].WeaponCollision(weaponList, nWeapons);
 	}
 
 	stars.UpdateStars(rng, dt);
@@ -78,9 +78,9 @@ void Game::ComposeFrame()
 		asteroidList[i].Draw(gfx);
 	}
 	
-	for (int i = 0; i < nLasers; i++)
+	for (int i = 0; i < nWeapons; i++)
 	{
-		laserList[i].Draw(gfx);
+		weaponList[i].Draw(gfx);
 	}
 
 }

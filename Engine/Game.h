@@ -26,7 +26,7 @@
 #include "FrameTimer.h"
 #include "Ship.h"
 #include "Asteroid.h"
-#include "Laser.h"
+#include "Weapon.h"
 #include <vector>
 #include <random>
 #include "StarBackground.h"
@@ -54,9 +54,9 @@ private:
 	Ship ship;
 	std::random_device rd;
 	std::mt19937 rng;
-	int nLasers = 0;
+	int nWeapons = 0;
 	int nAsteroids = 0;
-	std::vector<Laser> laserList;
+	std::vector<Weapon> weaponList;
 	std::vector<Asteroid> asteroidList;
 	StarBackground stars;
 	SpawnField spawnField;

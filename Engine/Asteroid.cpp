@@ -56,16 +56,16 @@ void Asteroid::CollisionBoundary()
 	}
 }
 
-void Asteroid::LaserCollision(std::vector<Laser> laserList, int nLasers)
+void Asteroid::WeaponCollision(std::vector<Weapon> &weapons, int& nWeapons)
 {
 	if (!destroyed)
 	{
-		for (int i = 0; i < nLasers; i++)
+		for (int i = 0; i < nWeapons; i++)
 		{
-			if (rect.IsOverlappingWith(laserList[i].GetRect()))
+			if (rect.IsOverlappingWith(weapons[i].GetRect()))
 			{
 				destroyed = true;
-				laserList[i].Destroy();
+				weapons[i].Destroy();
 				return;
 			}
 		}

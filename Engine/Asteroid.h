@@ -14,7 +14,7 @@ public:
 	void Update(const float dt);
 	void Draw(Graphics& gfx) const;
 	void CollisionBoundary();
-	void LaserCollision(std::vector<Laser> laserList, int nLasers);
+	void WeaponCollision(std::vector<Weapon> &weapons, int& nWeapons);
 	bool IsDestroyed() const;
 	const Rect2& GetRect() const;
 	void Destroy();

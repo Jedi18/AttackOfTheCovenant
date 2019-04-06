@@ -1,5 +1,6 @@
 #include "Ship.h"
 #include "SpriteCodex.h"
+#include "BallProjectile.h"
 
 Ship::Ship(Vec2 & pos_in, Vec2 & vel_in)
 	:
@@ -18,7 +19,7 @@ void Ship::Draw(Graphics& gfx) const
 	}
 }
 
-void Ship::Update(const Keyboard & kbd, const Mouse& mouse,const float dt, std::vector<Laser> &lasers, int& nLasers)
+void Ship::Update(const Keyboard & kbd, const Mouse& mouse,const float dt, std::vector<Weapon> &weapons, int& nWeapons)
 {
 	if (destroyed)
 	{
@@ -56,7 +57,7 @@ void Ship::Update(const Keyboard & kbd, const Mouse& mouse,const float dt, std::
 	{
 		if (shootTimer > shootTimeGap)
 		{
-			ShootWeapon(lasers, nLasers, WeaponType::LaserProj, Vec2(0,-1));
+			ShootWeapon(weapons, nWeapons, WeaponType::LaserProj, Vec2(0,-1));
 			shootTimer = 0;
 		}
 		else 
@@ -70,9 +71,9 @@ void Ship::Update(const Keyboard & kbd, const Mouse& mouse,const float dt, std::
 	{
 		if (turrentShootTimer > shootTimeGap)
 		{
-			Vec2 direction = (Vec2(mouse.GetPosX(), mouse.GetPosY()) - pos).GetNormalized();
+			Vec2 direction = (Vec2((float)mouse.GetPosX(), (float)mouse.GetPosY()) - pos).GetNormalized();
 
-			ShootWeapon(lasers, nLasers, WeaponType::TurretProj, direction);
+			ShootWeapon(weapons, nWeapons, WeaponType::TurretProj, direction);
 			turrentShootTimer = 0;
 		}
 		else
@@ -109,16 +110,16 @@ void Ship::AsteroidCollision(std::vector<Asteroid>& asteroidList, int& nAsteroid
 	}
 }
 
-void Ship::ShootWeapon(std::vector<Laser>& lasers, int & nLasers, WeaponType type, const Vec2& shootDir)
+void Ship::ShootWeapon(std::vector<Weapon> &weapons, int& nWeapons, WeaponType type, const Vec2& shootDir)
 {
 	switch (type)
 	{
 	case WeaponType::LaserProj:
-		lasers.push_back(Laser(Vec2(rect.left + width / 2, rect.top),shootDir * weaponSpeed, laserColor));
-		nLasers++;
+		weapons.push_back(Laser(Vec2(rect.left + width / 2, rect.top),shootDir * weaponSpeed));
+		nWeapons++;
 		break;
 	case WeaponType::TurretProj:
-		lasers.push_back(Laser(Vec2(rect.left + width / 2, rect.top),shootDir * weaponSpeed, turretColor));
-		nLasers++;
+		weapons.push_back(BallProjectile(Vec2(rect.left + width / 2, rect.top),shootDir * weaponSpeed));
+		nWeapons++;
 	}
 }
