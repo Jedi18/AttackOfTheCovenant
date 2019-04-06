@@ -15,18 +15,48 @@ SpawnField::SpawnField(float y_in, float spawnFrequency_in, std::vector<Asteroid
 
 void SpawnField::SpawnAsteroids(const float dt, int& nAsteroids)
 {
-	if (spawnCounter > spawnFrequency)
+	if (curSpawnAmount == maxSpawnAmount)
 	{
-		Vec2 pos = { (float)xDist(rng), y };
-		Vec2 vel = { 0, (float)velDist(rng) };
-		int asteroid_no = astNo(rng);
-
-		asteroidsList.push_back(Asteroid(pos, vel, asteroid_no));
-		nAsteroids++;
-
-		spawnCounter = 0.0f;
+		spawnLimitReached = true;
 	}
-	else {
-		spawnCounter += dt;
+	if (curSpawnAmount < maxSpawnAmount)
+	{
+		if (spawnCounter > spawnFrequency)
+		{
+			Vec2 pos = { (float)xDist(rng), y };
+			Vec2 vel = { 0, (float)velDist(rng) };
+			int asteroid_no = astNo(rng);
+
+			asteroidsList.push_back(Asteroid(pos, vel, asteroid_no));
+			nAsteroids++;
+
+			spawnCounter = 0.0f;
+			curSpawnAmount++;
+		}
+		else {
+			spawnCounter += dt;
+		}
 	}
+}
+
+void SpawnField::RelocateCheck()
+{
+	for (Asteroid& ast : asteroidsList)
+	{
+		if (ast.toBeRelocated)
+		{
+			RelocateAsteroid(ast);
+		}
+	}
+}
+
+void SpawnField::RelocateAsteroid(Asteroid & ast)
+{
+	Vec2 pos = { (float)xDist(rng), y };
+	Vec2 vel = { 0, (float)velDist(rng) };
+
+	ast.SetPositionAndVelocity(pos, vel);
+
+	ast.toBeRelocated = false;
+	ast.SetRespawnConditions();
 }

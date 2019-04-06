@@ -11,11 +11,15 @@ public:
 	void Update(const float dt);
 	void CollisionBoundary();
 	void Destroy();
+	void Revive(Vec2& pos, Vec2& vel);
 	Rect2& GetRect();
+	bool IsReadyForRevival();
+	bool IsDestroyed();
 protected:
 	Vec2 pos;
 	Vec2 vel;
 	Color c = Colors::Red;
 	Rect2 rect;
 	bool destroyed = false;
+	bool toBeRespawned = false;
 };

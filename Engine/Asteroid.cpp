@@ -1,5 +1,6 @@
 #include "Asteroid.h"
 #include "SpriteCodex.h"
+#include <assert.h>
 
 Asteroid::Asteroid(Vec2 & pos_in, Vec2 & vel_in, int asteroid_no_in)
 	:
@@ -51,7 +52,7 @@ void Asteroid::CollisionBoundary()
 
 		if (rect.lastCollision == Rect2::LastCollision::Bottom)
 		{
-			destroyed = true;
+			Destroy();
 		}
 	}
 }
@@ -62,11 +63,16 @@ void Asteroid::WeaponCollision(std::vector<Weapon> &weapons, int& nWeapons)
 	{
 		for (int i = 0; i < nWeapons; i++)
 		{
-			if (rect.IsOverlappingWith(weapons[i].GetRect()))
+			// Check if weapon is not disabled and only then check for overlapping
+			if (!weapons[i].IsDestroyed())
 			{
-				destroyed = true;
-				weapons[i].Destroy();
-				return;
+				if (rect.IsOverlappingWith(weapons[i].GetRect()))
+				{
+					rect.lastCollision = Rect2::LastCollision::Weapon;
+					Destroy();
+					weapons[i].Destroy();
+					return;
+				}
 			}
 		}
 	}
@@ -77,12 +83,33 @@ bool Asteroid::IsDestroyed() const
 	return destroyed;
 }
 
-const Rect2 & Asteroid::GetRect() const
+Rect2 & Asteroid::GetRect()
 {
 	return rect;
 }
 
 void Asteroid::Destroy()
 {
-	destroyed = true;
+	assert(rect.lastCollision != Rect2::LastCollision::No);
+
+	if (rect.lastCollision == Rect2::LastCollision::Player)
+	{
+		destroyed = true;
+	}
+	else
+	{
+		toBeRelocated = true;
+	}
+}
+
+void Asteroid::SetPositionAndVelocity(Vec2 pos_in, Vec2 vel_in)
+{
+	pos = pos_in;
+	vel = vel_in;
+}
+
+void Asteroid::SetRespawnConditions()
+{
+	disableCollisionBoundary = true;
+	enteredPlayingGround = false;
 }

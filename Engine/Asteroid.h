@@ -16,10 +16,13 @@ public:
 	void CollisionBoundary();
 	void WeaponCollision(std::vector<Weapon> &weapons, int& nWeapons);
 	bool IsDestroyed() const;
-	const Rect2& GetRect() const;
+	Rect2& GetRect();
 	void Destroy();
+	void SetPositionAndVelocity(Vec2 pos, Vec2 vel);
+	void SetRespawnConditions();
 public:
 	static constexpr int no_asteroid_types = 2;
+	bool toBeRelocated = false;
 private:
 	int asteroid_no;
 	float width[no_asteroid_types] = { 50, 40 };

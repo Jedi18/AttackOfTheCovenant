@@ -25,6 +25,7 @@ public:
 	void CollisionBoundary();
 	void AsteroidCollision(std::vector<Asteroid>& asteroidList, int& nAsteroids);
 	void ShootWeapon(std::vector<Weapon> &weapons, int& nWeapons, WeaponType type,const Vec2& shootDir);
+	void ShootRecycled(std::vector<Weapon> &weapons, int& nWeapons, WeaponType type, const Vec2& shootDir);
 private:
 	Vec2 pos;
 	Vec2 vel;
@@ -35,8 +36,9 @@ private:
 	static constexpr float weaponSpeed = 300.0f;
 	// To allow a small time gap between lasers being shot
 	static constexpr float shootTimeGap = 0.25f;
+	static constexpr int maxWeaponCount = 30;
+	int weaponCount = 0;
 	float shootTimer = shootTimeGap-0.01f;
 	float turrentShootTimer = shootTimeGap - 0.01f;
-
 	bool destroyed = false;
 };

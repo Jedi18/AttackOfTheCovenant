@@ -11,7 +11,9 @@ public:
 		Top,
 		Bottom,
 		Left,
-		Right
+		Right,
+		Weapon,
+		Player
 	};
 public:
 	Rect2() = default;

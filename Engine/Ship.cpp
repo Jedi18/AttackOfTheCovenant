@@ -102,6 +102,7 @@ void Ship::AsteroidCollision(std::vector<Asteroid>& asteroidList, int& nAsteroid
 				if (rect.IsOverlappingWith(asteroidList[i].GetRect()))
 				{
 					destroyed = true;
+					asteroidList[i].GetRect().lastCollision = Rect2::LastCollision::Player;
 					asteroidList[i].Destroy();
 					break;
 				}
@@ -115,11 +116,47 @@ void Ship::ShootWeapon(std::vector<Weapon> &weapons, int& nWeapons, WeaponType t
 	switch (type)
 	{
 	case WeaponType::LaserProj:
-		weapons.push_back(Laser(Vec2(rect.left + width / 2, rect.top),shootDir * weaponSpeed));
-		nWeapons++;
+		if (weaponCount < maxWeaponCount)
+		{
+			weapons.push_back(Laser(Vec2(rect.left + width / 2, rect.top), shootDir * weaponSpeed));
+			nWeapons++;
+			weaponCount++;
+		}
+		else
+		{
+			ShootRecycled(weapons, nWeapons, type, shootDir);
+		}
 		break;
 	case WeaponType::TurretProj:
-		weapons.push_back(BallProjectile(Vec2(rect.left + width / 2, rect.top),shootDir * weaponSpeed));
-		nWeapons++;
+		if (weaponCount < maxWeaponCount)
+		{
+			weapons.push_back(BallProjectile(Vec2(rect.left + width / 2, rect.top), shootDir * weaponSpeed));
+			nWeapons++;
+			weaponCount++;
+		}
+		else
+		{
+			ShootRecycled(weapons, nWeapons, type, shootDir);
+		}
+	}
+}
+
+void Ship::ShootRecycled(std::vector<Weapon>& weapons, int & nWeapons, WeaponType type, const Vec2 & shootDir)
+{
+	for (Weapon& wep : weapons)
+	{
+		if (wep.IsReadyForRevival())
+		{
+			switch (type)
+			{
+			case WeaponType::LaserProj:
+             	wep.Revive(Vec2(rect.left + width / 2, rect.top), shootDir * weaponSpeed);
+				break;
+			case WeaponType::TurretProj:
+				wep.Revive(Vec2(rect.left + width / 2, rect.top), shootDir * weaponSpeed);
+				break;
+			}
+			break;
+		}
 	}
 }

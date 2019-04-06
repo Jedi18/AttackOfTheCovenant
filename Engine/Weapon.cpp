@@ -29,20 +29,45 @@ void Weapon::Update(const float dt)
 
 void Weapon::CollisionBoundary()
 {
-	rect.CollisionBoundary(pos, vel);
-
-	if (rect.lastCollision != Rect2::LastCollision::No)
+	if (!destroyed)
 	{
-		destroyed = true;
+		rect.CollisionBoundary(pos, vel);
+
+		if (rect.lastCollision != Rect2::LastCollision::No)
+		{
+			Destroy();
+		}
 	}
 }
 
 void Weapon::Destroy()
 {
 	destroyed = true;
+	toBeRespawned = true;
+}
+
+void Weapon::Revive(Vec2& pos_in , Vec2& vel_in)
+{
+	pos = pos_in;
+	vel = vel_in;
+	destroyed = false;
+	toBeRespawned = false;
+
+	//fuck forget to reset last collision
+	rect.lastCollision = Rect2::LastCollision::No;
 }
 
 Rect2 & Weapon::GetRect()
 {
 	return rect;
+}
+
+bool Weapon::IsReadyForRevival()
+{
+	return toBeRespawned;
+}
+
+bool Weapon::IsDestroyed()
+{
+	return destroyed;
 }

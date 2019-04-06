@@ -45,7 +45,11 @@ void Game::UpdateModel()
 {
 	const float dt = ft.Mark();
 
-	spawnField.SpawnAsteroids(dt, nAsteroids);
+	// Check if required amount of asteroids have been spawned
+	if (!spawnField.spawnLimitReached)
+	{
+		spawnField.SpawnAsteroids(dt, nAsteroids);
+	}
 
 	ship.Update(wnd.kbd,wnd.mouse, dt, weaponList, nWeapons);
 
@@ -67,6 +71,9 @@ void Game::UpdateModel()
 	}
 
 	stars.UpdateStars(rng, dt);
+
+	// Recycle asteroids by relocating them if they've collided with boundary or weapon
+	spawnField.RelocateCheck();
 }
 
 void Game::ComposeFrame()
