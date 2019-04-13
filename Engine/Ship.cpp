@@ -7,7 +7,9 @@ Ship::Ship(Vec2 & pos_in, Vec2 & vel_in)
 	pos(pos_in),
 	vel(vel_in),
 	rect(pos_in.x, pos_in.x + width, pos_in.y, pos_in.y + height),
-	speed(vel.GetLength())
+	speed(vel.GetLength()),
+	laserSound1(L"pewpew.wav"),
+	laserSound2(L"pewpew1.wav")
 {
 }
 
@@ -126,6 +128,7 @@ void Ship::ShootWeapon(std::vector<Weapon> &weapons, int& nWeapons, Weapon::Weap
 		{
 			ShootRecycled(weapons, nWeapons, type, shootDir);
 		}
+		laserSound1.Play(1.0f, 0.5f);
 		break;
 	case Weapon::WeaponType::TurretProj:
 		if (weaponCount < maxWeaponCount)
@@ -138,6 +141,8 @@ void Ship::ShootWeapon(std::vector<Weapon> &weapons, int& nWeapons, Weapon::Weap
 		{
 			ShootRecycled(weapons, nWeapons, type, shootDir);
 		}
+		laserSound2.Play(1.0f, 0.5f);
+		break;
 	}
 }
 

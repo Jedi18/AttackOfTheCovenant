@@ -8,6 +8,7 @@
 #include <vector>
 #include "Asteroid.h"
 #include "Mouse.h"
+#include "Sound.h"
 
 class Ship
 {
@@ -35,4 +36,6 @@ private:
 	float shootTimer = shootTimeGap-0.01f;
 	float turrentShootTimer = shootTimeGap - 0.01f;
 	bool destroyed = false;
+	Sound laserSound1;
+	Sound laserSound2;
 };

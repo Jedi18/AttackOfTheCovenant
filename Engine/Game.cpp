@@ -29,8 +29,10 @@ Game::Game(MainWindow& wnd)
 	ship(Vec2(100, 600), Vec2(200, 200)),
 	rng(rd()),
 	stars(rng, Vec2(0, -100)),
-	spawnField(-60.0f, 0.5f, asteroidList, rng)
+	spawnField(-60.0f, 0.5f, asteroidList, rng),
+	backgroundSound(L"backgroundMusic.wav", 0.0f, 1.0f)
 {
+	backgroundSound.Play(1.0f, 0.5f);
 }
 
 void Game::Go()

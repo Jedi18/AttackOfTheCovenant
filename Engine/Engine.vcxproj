@@ -152,6 +152,8 @@
     <ClInclude Include="Rect2.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Ship.h" />
+    <ClInclude Include="Sound.h" />
+    <ClInclude Include="SoundEffect.h" />
     <ClInclude Include="SpawnField.h" />
     <ClInclude Include="SpriteCodex.h" />
     <ClInclude Include="StarBackground.h" />
@@ -173,6 +175,7 @@
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Rect2.cpp" />
     <ClCompile Include="Ship.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="SpawnField.cpp" />
     <ClCompile Include="SpriteCodex.cpp" />
     <ClCompile Include="StarBackground.cpp" />
@@ -247,6 +250,11 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Chili.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="backgroundMusic.wav" />
+    <Media Include="pewpew.wav" />
+    <Media Include="pewpew1.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
