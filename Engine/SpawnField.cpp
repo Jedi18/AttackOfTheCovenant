@@ -111,12 +111,49 @@ void SpawnField::RelocateAsteroid(Asteroid & ast)
 
 void SpawnField::UpdatePowerUpsList()
 {
+	// erase vector till suitable index if reached a certain amount of used powerups in the beginning of vector
+	int nVecs = 0;
+	int lastVec = -1;
+	bool keepCounting = true;
+	int numEnabled = 0;
+
 	for (size_t i = 0; i < powerUpsList.size(); i++)
 	{
-		if (!powerUpsList[i]->IsEnabled() && !powerUpsList[i]->blackListedFromSpawn)
+		bool isEnabled = powerUpsList[i]->IsEnabled();
+		bool isBlackListed = powerUpsList[i]->blackListedFromSpawn;
+
+		if (!isEnabled && !isBlackListed)
 		{
 			powerUpSpawnAmount--;
 			powerUpsList[i]->blackListedFromSpawn = true;
 		}
+		else if (isBlackListed)
+		{
+			if(keepCounting)
+			{
+				if (lastVec == i - 1)
+				{
+					lastVec = i;
+					nVecs++;
+				}
+				else
+				{
+					keepCounting = false;
+				}
+			}
+		}
+		else if (isEnabled)
+		{
+			numEnabled++;
+		}
+	}
+
+	powerUpSpawnAmount = numEnabled;
+
+	if (nVecs > 5)
+	{
+	 	powerUpsList.erase(powerUpsList.begin(),powerUpsList.begin() + (nVecs - 1));
+
+		int check = 0;
 	}
 }
