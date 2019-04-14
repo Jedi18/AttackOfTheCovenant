@@ -33,10 +33,6 @@
 #include "SpawnField.h"
 #include "Sound.h"
 #include "PowerUps.h"
-#include "SpeedUpPowerUp.h"
-#include "FasterShootPowerUp.h"
-#include "WeaponSpeedIncrease.h"
-#include "InvincibilityPowerUp.h"
 
 class Game
 {
@@ -63,8 +59,10 @@ private:
 	std::mt19937 rng;
 	int nWeapons = 0;
 	int nAsteroids = 0;
+	int nPowerUps = 0;
 	std::vector<Weapon> weaponList;
 	std::vector<Asteroid> asteroidList;
+	std::vector<PowerUps> powerupsList;
 	StarBackground stars;
 	SpawnField spawnField;
 	Sound backgroundSound;

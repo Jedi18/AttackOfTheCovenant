@@ -29,7 +29,7 @@ Game::Game(MainWindow& wnd)
 	ship(Vec2(100, 600), Vec2(200, 200)),
 	rng(rd()),
 	stars(rng, Vec2(0, -100)),
-	spawnField(-60.0f, 0.5f, asteroidList, rng),
+	spawnField(-60.0f, 0.5f, asteroidList, powerupsList, rng),
 	backgroundSound(L"backgroundMusic.wav", 0.0f, 1.0f),
 	mesainvincible(Vec2(300, 300), ship, 20, 20, PowerUps::PowerLevel::High)
 {
@@ -54,6 +54,8 @@ void Game::UpdateModel()
 		spawnField.SpawnAsteroids(dt, nAsteroids);
 	}
 
+	spawnField.SpawnPowerUps(dt, ship, nPowerUps);
+
 	ship.Update(wnd.kbd,wnd.mouse, dt, weaponList, nWeapons);
 
 	ship.AsteroidCollision(asteroidList, nAsteroids);
@@ -73,11 +75,15 @@ void Game::UpdateModel()
 		asteroidList[i].WeaponCollision(weaponList, nWeapons);
 	}
 
+	for (int i = 0; i < powerupsList.size(); i++)
+	{
+		powerupsList[i].PowerUpsCollisions();
+	}
+
 	stars.UpdateStars(rng, dt);
 
 	// Recycle asteroids by relocating them if they've collided with boundary or weapon
 	spawnField.RelocateCheck();
-	mesainvincible.PowerUpsCollisions();
 }
 
 void Game::ComposeFrame()
@@ -88,10 +94,12 @@ void Game::ComposeFrame()
 	{
 		asteroidList[i].Draw(gfx);
 	}
-	
 	for (int i = 0; i < nWeapons; i++)
 	{
 		weaponList[i].Draw(gfx);
 	}
-	mesainvincible.Draw(gfx);
+	for (int i = 0; i < powerupsList.size(); i++)
+	{
+		powerupsList[i].Draw(gfx);
+	}
 }

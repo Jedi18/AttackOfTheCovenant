@@ -9,6 +9,10 @@ PowerUps::PowerUps(Vec2& pos_in, Ship& ship_in, int width, int height, PowerLeve
 {
 }
 
+void PowerUps::EnablePowerup() const
+{
+}
+
 void PowerUps::PowerUpsCollisions()
 {
 	if (enabled)
@@ -27,4 +31,9 @@ void PowerUps::Draw(Graphics & gfx) const
 	{
 		gfx.DrawRect2(rect, Colors::Red);
 	}
+}
+
+bool PowerUps::IsEnabled() const
+{
+	return enabled;
 }
