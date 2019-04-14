@@ -9,10 +9,6 @@ PowerUps::PowerUps(Vec2& pos_in, Ship& ship_in, int width, int height, PowerLeve
 {
 }
 
-void PowerUps::EnablePowerup() const
-{
-}
-
 void PowerUps::PowerUpsCollisions()
 {
 	if (enabled)

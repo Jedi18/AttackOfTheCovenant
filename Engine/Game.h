@@ -62,7 +62,8 @@ private:
 	int nPowerUps = 0;
 	std::vector<Weapon> weaponList;
 	std::vector<Asteroid> asteroidList;
-	std::vector<PowerUps> powerupsList;
+	// to avoid object slicing and for polymorphism using vector of pointers
+	std::vector<PowerUps*> powerupsList;
 	StarBackground stars;
 	SpawnField spawnField;
 	Sound backgroundSound;

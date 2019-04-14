@@ -77,7 +77,7 @@ void Game::UpdateModel()
 
 	for (int i = 0; i < powerupsList.size(); i++)
 	{
-		powerupsList[i].PowerUpsCollisions();
+		powerupsList[i]->PowerUpsCollisions();
 	}
 
 	stars.UpdateStars(rng, dt);
@@ -100,6 +100,6 @@ void Game::ComposeFrame()
 	}
 	for (int i = 0; i < powerupsList.size(); i++)
 	{
-		powerupsList[i].Draw(gfx);
+		powerupsList[i]->Draw(gfx);
 	}
 }

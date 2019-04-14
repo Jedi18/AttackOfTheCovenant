@@ -3,7 +3,7 @@
 #include "Ship.h"
 #include <assert.h>
 
-SpawnField::SpawnField(float y_in, float spawnFrequency_in, std::vector<Asteroid>& asteroidsList_in, std::vector<PowerUps>& powerupList, std::mt19937& rng_in)
+SpawnField::SpawnField(float y_in, float spawnFrequency_in, std::vector<Asteroid>& asteroidsList_in, std::vector<PowerUps*>& powerupList, std::mt19937& rng_in)
 	:
 	y(y_in),
 	spawnFrequency(spawnFrequency_in),
@@ -64,16 +64,16 @@ void SpawnField::SpawnPowerUps(const float dt, Ship& ship, int& nPowerUps)
 			switch (powerUpType)
 			{
 			case 0:
-				powerUpsList.push_back(SpeedUpPowerUp(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel));
+				powerUpsList.push_back(new SpeedUpPowerUp(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel));
 				break;
 			case 1:
-				powerUpsList.push_back(FasterShootPowerUp(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel));
+				powerUpsList.push_back(new FasterShootPowerUp(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel));
 				break;
 			case 2:
-				powerUpsList.push_back(WeaponSpeedIncrease(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel));
+				powerUpsList.push_back(new WeaponSpeedIncrease(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel));
 				break;
 			case 3:
-				powerUpsList.push_back(InvincibilityPowerUp(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel));
+				powerUpsList.push_back(new InvincibilityPowerUp(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel));
 				break;
 			}
 			powerUpSpawnAmount++;
@@ -113,10 +113,10 @@ void SpawnField::UpdatePowerUpsList()
 {
 	for (size_t i = 0; i < powerUpsList.size(); i++)
 	{
-		if (!powerUpsList[i].IsEnabled() && !powerUpsList[i].blackListedFromSpawn)
+		if (!powerUpsList[i]->IsEnabled() && !powerUpsList[i]->blackListedFromSpawn)
 		{
 			powerUpSpawnAmount--;
-			powerUpsList[i].blackListedFromSpawn = true;
+			powerUpsList[i]->blackListedFromSpawn = true;
 		}
 	}
 }

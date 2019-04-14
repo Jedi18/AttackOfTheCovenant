@@ -17,7 +17,7 @@ public:
 	};
 public:
 	PowerUps(Vec2& pos, Ship& ship_in, int width, int height, PowerLevel level);
-	virtual void EnablePowerup() const;
+	virtual void EnablePowerup() const = 0;
 	void PowerUpsCollisions();
 	void Draw(Graphics& gfx) const;
 	bool IsEnabled() const;
