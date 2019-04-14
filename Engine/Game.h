@@ -32,6 +32,8 @@
 #include "StarBackground.h"
 #include "SpawnField.h"
 #include "Sound.h"
+#include "PowerUps.h"
+#include "SpeedUpPowerUp.h"
 
 class Game
 {
@@ -63,5 +65,6 @@ private:
 	StarBackground stars;
 	SpawnField spawnField;
 	Sound backgroundSound;
+	SpeedUpPowerUp iamspeed;
 	/********************************/
 };

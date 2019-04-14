@@ -30,7 +30,8 @@ Game::Game(MainWindow& wnd)
 	rng(rd()),
 	stars(rng, Vec2(0, -100)),
 	spawnField(-60.0f, 0.5f, asteroidList, rng),
-	backgroundSound(L"backgroundMusic.wav", 0.0f, 1.0f)
+	backgroundSound(L"backgroundMusic.wav", 0.0f, 1.0f),
+	iamspeed(Vec2(300, 300), ship, 20, 20, PowerUps::PowerLevel::High)
 {
 	backgroundSound.Play(1.0f, 0.5f);
 }
@@ -76,6 +77,7 @@ void Game::UpdateModel()
 
 	// Recycle asteroids by relocating them if they've collided with boundary or weapon
 	spawnField.RelocateCheck();
+	iamspeed.PowerUpsCollisions();
 }
 
 void Game::ComposeFrame()
@@ -91,5 +93,5 @@ void Game::ComposeFrame()
 	{
 		weaponList[i].Draw(gfx);
 	}
-
+	iamspeed.Draw(gfx);
 }

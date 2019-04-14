@@ -1,6 +1,7 @@
 #include "Ship.h"
 #include "SpriteCodex.h"
 #include "BallProjectile.h"
+#include "assert.h"
 
 Ship::Ship(Vec2 & pos_in, Vec2 & vel_in)
 	:
@@ -8,6 +9,7 @@ Ship::Ship(Vec2 & pos_in, Vec2 & vel_in)
 	vel(vel_in),
 	rect(pos_in.x, pos_in.x + width, pos_in.y, pos_in.y + height),
 	speed(vel.GetLength()),
+	originalSpeed(speed),
 	laserSound1(L"pewpew.wav"),
 	laserSound2(L"pewpew1.wav")
 {
@@ -28,6 +30,22 @@ void Ship::Update(const Keyboard & kbd, const Mouse& mouse,const float dt, std::
 		return;
 	}
 
+	// power up update
+	if (powerUpEnabled)
+	{
+		if (powerUpTimeLeft > 0.0f)
+		{
+			powerUpTimeLeft -= dt;
+		}
+		else
+		{
+			powerUpTimeLeft = 0.0f;
+			powerUpEnabled = false;
+			DisablePowerUp();
+		}
+	}
+
+	// player movement
 	Vec2 direction = { 0.0f, 0.0f };
 
 	if (kbd.KeyIsPressed(VK_UP) || kbd.KeyIsPressed(0x57))
@@ -163,5 +181,36 @@ void Ship::ShootRecycled(std::vector<Weapon>& weapons, int & nWeapons, Weapon::W
 			}
 			break;
 		}
+	}
+}
+
+Rect2 & Ship::GetRect()
+{
+	return rect;
+}
+
+void Ship::UsePowerup(PowerUpType power, float value, float duration)
+{
+	switch (power)
+	{
+	case PowerUpType::SpeedUp:
+		speed = speed * value;
+		powerUpTimeLeft = duration;
+		powerUpEnabled = true;
+		powerUpInUse = PowerUpType::SpeedUp;
+		break;
+	}
+}
+
+void Ship::DisablePowerUp()
+{
+	assert(powerUpInUse != PowerUpType::None);
+
+	switch (powerUpInUse)
+	{
+	case PowerUpType::SpeedUp:
+		speed = originalSpeed;
+		powerUpInUse = PowerUpType::None;
+		break;
 	}
 }
