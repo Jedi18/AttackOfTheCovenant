@@ -19,6 +19,7 @@ public:
 		SpeedUp,
 		FasterShoot,
 		Invincibility,
+		WeaponSpeedIncrease,
 		None
 	};
 public:
@@ -42,6 +43,7 @@ private:
 	static constexpr float originalWeaponSpeed = 300.0f;
 	// To allow a small time gap between lasers being shot
 	static constexpr float originalShootTimeGap = 0.25f;
+	bool invincible = false;
 
 	float powerUpTimeLeft = 0.0f;
 	bool powerUpEnabled = false;

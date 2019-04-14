@@ -121,7 +121,10 @@ void Ship::AsteroidCollision(std::vector<Asteroid>& asteroidList, int& nAsteroid
 			{
 				if (rect.IsOverlappingWith(asteroidList[i].GetRect()))
 				{
-					destroyed = true;
+					if (!invincible)
+					{
+						destroyed = true;
+					}
 					asteroidList[i].GetRect().lastCollision = Rect2::LastCollision::Player;
 					asteroidList[i].Destroy();
 					break;
@@ -191,15 +194,29 @@ Rect2 & Ship::GetRect()
 
 void Ship::UsePowerup(PowerUpType power, float value, float duration)
 {
+	assert(power != PowerUpType::None);
 	switch (power)
 	{
 	case PowerUpType::SpeedUp:
 		speed = speed * value;
-		powerUpTimeLeft = duration;
-		powerUpEnabled = true;
 		powerUpInUse = PowerUpType::SpeedUp;
 		break;
+	case PowerUpType::FasterShoot:
+		shootTimeGap = shootTimeGap * value;
+		powerUpInUse = PowerUpType::FasterShoot;
+		break;
+	case PowerUpType::WeaponSpeedIncrease:
+		weaponSpeed = weaponSpeed * value;
+		powerUpInUse = PowerUpType::WeaponSpeedIncrease;
+		break;
+	case PowerUpType::Invincibility:
+		invincible = true;
+		powerUpInUse = PowerUpType::Invincibility;
+		break;
 	}
+
+	powerUpTimeLeft = duration;
+	powerUpEnabled = true;
 }
 
 void Ship::DisablePowerUp()
@@ -210,7 +227,17 @@ void Ship::DisablePowerUp()
 	{
 	case PowerUpType::SpeedUp:
 		speed = originalSpeed;
-		powerUpInUse = PowerUpType::None;
+		break;
+	case PowerUpType::FasterShoot:
+		shootTimeGap = originalShootTimeGap;
+		break;
+	case PowerUpType::WeaponSpeedIncrease:
+		weaponSpeed = originalWeaponSpeed;
+		break;
+	case PowerUpType::Invincibility:
+		invincible = false;
 		break;
 	}
+
+	powerUpInUse = PowerUpType::None;
 }

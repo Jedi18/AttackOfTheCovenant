@@ -34,6 +34,9 @@
 #include "Sound.h"
 #include "PowerUps.h"
 #include "SpeedUpPowerUp.h"
+#include "FasterShootPowerUp.h"
+#include "WeaponSpeedIncrease.h"
+#include "InvincibilityPowerUp.h"
 
 class Game
 {
@@ -65,6 +68,6 @@ private:
 	StarBackground stars;
 	SpawnField spawnField;
 	Sound backgroundSound;
-	SpeedUpPowerUp iamspeed;
+	InvincibilityPowerUp mesainvincible;
 	/********************************/
 };

@@ -99,6 +99,15 @@
     <ClInclude Include="SpeedUpPowerUp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FasterShootPowerUp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponSpeedIncrease.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InvincibilityPowerUp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DXErr.cpp">
@@ -165,6 +174,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SpeedUpPowerUp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FasterShootPowerUp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponSpeedIncrease.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InvincibilityPowerUp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
