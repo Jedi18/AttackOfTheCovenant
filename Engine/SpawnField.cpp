@@ -3,7 +3,7 @@
 #include "Ship.h"
 #include <assert.h>
 
-SpawnField::SpawnField(float y_in, float spawnFrequency_in, std::vector<Asteroid>& asteroidsList_in, std::vector<PowerUps*>& powerupList, std::mt19937& rng_in)
+SpawnField::SpawnField(float y_in, float spawnFrequency_in, std::vector<Asteroid>& asteroidsList_in, std::vector<std::unique_ptr<PowerUps>>& powerupList, std::mt19937& rng_in)
 	:
 	y(y_in),
 	spawnFrequency(spawnFrequency_in),
@@ -64,16 +64,16 @@ void SpawnField::SpawnPowerUps(const float dt, Ship& ship, int& nPowerUps)
 			switch (powerUpType)
 			{
 			case 0:
-				powerUpsList.push_back(new SpeedUpPowerUp(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel));
+				powerUpsList.push_back(std::unique_ptr<PowerUps>(new SpeedUpPowerUp(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel)));
 				break;
 			case 1:
-				powerUpsList.push_back(new FasterShootPowerUp(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel));
+				powerUpsList.push_back(std::unique_ptr<PowerUps>(new FasterShootPowerUp(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel)));
 				break;
 			case 2:
-				powerUpsList.push_back(new WeaponSpeedIncrease(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel));
+				powerUpsList.push_back(std::unique_ptr<PowerUps>(new WeaponSpeedIncrease(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel)));
 				break;
 			case 3:
-				powerUpsList.push_back(new InvincibilityPowerUp(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel));
+				powerUpsList.push_back(std::unique_ptr<PowerUps>(new InvincibilityPowerUp(pos, ship, 20, 20, (PowerUps::PowerLevel)powerLevel)));
 				break;
 			}
 			powerUpSpawnAmount++;

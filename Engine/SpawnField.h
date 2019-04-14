@@ -13,7 +13,7 @@
 class SpawnField
 {
 public:
-	SpawnField(float y_in, float spawnFrequency_in, std::vector<Asteroid>& asteroidsList_in, std::vector<PowerUps*>& powerupList, std::mt19937& rng_in);
+	SpawnField(float y_in, float spawnFrequency_in, std::vector<Asteroid>& asteroidsList_in, std::vector<std::unique_ptr<PowerUps>>& powerupList, std::mt19937& rng_in);
 	void SpawnAsteroids(const float dt, int& nAsteroids);
 	void SpawnPowerUps(const float dt, Ship& ship, int& nPowerUps);
 	void RelocateCheck();
@@ -42,7 +42,7 @@ private:
 	std::uniform_int_distribution<int> astNo;
 	std::uniform_int_distribution<int> powerupDist;
 	std::vector<Asteroid>& asteroidsList;
-	std::vector<PowerUps*>& powerUpsList;
+	std::vector<std::unique_ptr<PowerUps>>& powerUpsList;
 	float spawnFrequency;
 	float spawnCounter = 0.0f;
 
